@@ -1,56 +1,82 @@
 // ==== SCRIPTS ==== //
+'use strict';
 
-var gulp        = require('gulp')
+let gulp        = require('gulp')
   , plugins     = require('gulp-load-plugins')({ camelize: true })
-  , merge       = require('merge-stream')
+  , browserify = require('browserify')
+  , watchify = require('watchify')
+  , envify = require('envify')
+  , uglifyify = require('uglifyify')
+  , babelify = require('babelify')
   , config      = require('../../gulpconfig').scripts
-;
+  , gutil = require('gulp-util')
+  , source = require('vinyl-source-stream')
+  , buffer = require('vinyl-buffer')
+  , path = require('path')
+  ;
 
 // Check core scripts for errors
 gulp.task('scripts-lint', function() {
   return gulp.src(config.lint.src)
-  .pipe(plugins.jshint('.jshintrc'))
-  .pipe(plugins.jshint.reporter('default')); // No need to pipe this anywhere
+  .pipe(plugins.eslint())
+  .pipe(plugins.eslint.format());
 });
 
-// Generate script bundles as defined in the configuration file
-// Adapted from https://github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
-gulp.task('scripts-bundle', ['scripts-lint'], function(){
-  var bundles = [];
-
-  // Iterate through all bundles defined in the configuration
-  for (var bundle in config.bundles) {
-    if (config.bundles.hasOwnProperty(bundle)) {
-      var chunks = [];
-
-      // Iterate through each bundle and mash the chunks together
-      config.bundles[bundle].forEach(function(chunk){
-        chunks = chunks.concat(config.chunks[chunk]);
-      });
-
-      // Push the results to the bundles array
-      bundles.push([bundle, chunks]);
-    }
-  }
-
-  // Iterate through each bundle in the bundles array
-  var tasks = bundles.map(function(bundle) {
-    return gulp.src(bundle[1]) // bundle[1]: the list of source files
-    .pipe(plugins.concat(config.namespace + bundle[0].replace(/_/g, '-') + '.js')) // bundle[0]: the nice name of the script; underscores are replaced with hyphens
-    .pipe(gulp.dest(config.dest));
+gulp.task('scripts-bundle', ['scripts-lint'], function(done) {
+  let bundler = browserify({
+    cache: {}, packageCache: {}, fullPaths: false,
+    entries: config.entries,
+    debug: !isProd,
+    detectGlobals: true,
+    sourceType: 'module'
   });
 
-  // Cross the streams ;)
-  return merge(tasks);
-});
+  if (!isProd) {
+    bundler = watchify(bundler);
+  }
 
-// Minify scripts in place
-gulp.task('scripts-minify', ['scripts-bundle'], function(){
-  return gulp.src(config.minify.src)
-  .pipe(plugins.rename(config.minify.rename))
-  .pipe(plugins.uglify(config.minify.uglify))
-  .pipe(gulp.dest(config.minify.dest));
+  let bundle = entry => {
+    bundler.bundle()
+      // log errors if they happen
+      .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+      .on('error', function(error) {
+        if (isProd) throw error
+      })
+      .pipe(source(config.namespace + '-' + path.basename(entry)))
+      .pipe(buffer())
+      .pipe(plugins.if(!isProd, plugins.sourcemaps.init({loadMaps: !isProd}))) // loads map from browserify file
+      .pipe(plugins.if(!isProd, plugins.sourcemaps.write()))
+      .pipe(gulp.dest(config.dest))
+  }
+
+  let bundleAll = () => {
+    config.entries.map(entry => bundle(entry));
+    plugins.livereload();
+  };
+
+  bundler.transform(babelify.configure({
+    ignore: /\.scss$/,
+    presets: ['es2015']
+  }))
+
+  bundler.transform({
+    global: true
+  }, 'envify');
+
+  if (isProd) {
+    bundler.transform({
+      global: true,
+      compress: {drop_console: true}
+    }, 'uglifyify');
+  }
+
+  bundler.add(config.entries);
+  bundler.on('update', bundleAll);
+  bundler.on('log', gutil.log);
+
+  bundleAll();
+  done();
 });
 
 // Master script task; lint -> bundle -> minify
-gulp.task('scripts', ['scripts-minify']);
+gulp.task('scripts', ['scripts-bundle']);

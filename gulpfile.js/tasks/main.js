@@ -1,9 +1,18 @@
 // ==== MAIN ==== //
 
-var gulp = require('gulp');
+var gulp = require('gulp')
+    , runSequence = require('run-sequence');
+
+isProd = true;
+
+gulp.task('setDev', function(){
+  isProd = false;
+});
 
 // Default task chain: build -> (livereload or browsersync) -> watch
-gulp.task('default', ['watch']);
+gulp.task('dev', function(){
+  runSequence('setDev', 'watch');
+});
 
 // One-off setup tasks
 gulp.task('setup', ['utils-normalize']);

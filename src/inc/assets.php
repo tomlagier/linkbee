@@ -47,7 +47,7 @@ function voidx_enqueue_scripts() {
 
   // Load theme-specific JavaScript bundles with versioning based on last modified time; http://www.ericmmartin.com/5-tips-for-using-jquery-with-wordpress/
   // The handle is the same for each bundle since we're only loading one script; if you load others be sure to provide a new handle
-  wp_enqueue_script( $script_handle, get_stylesheet_directory_uri() . '/js/' . $ns . $script_name . $suffix . '.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/' . $ns . $script_name . $suffix . '.js' ), true );
+  // wp_enqueue_script( $script_handle, get_stylesheet_directory_uri() . '/js/' . $ns . $script_name . '.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/' . $ns . $script_name . '.js' ), true );
 
   // Pass variables to JavaScript at runtime; see: http://codex.wordpress.org/Function_Reference/wp_localize_script
   $script_vars = apply_filters( 'voidx_script_vars', $script_vars );
@@ -55,8 +55,8 @@ function voidx_enqueue_scripts() {
     wp_localize_script( $script_handle, 'voidxVars', $script_vars );
 
   // Script variables for WP AJAX Page Loader (these are separate from the main theme script variables due to the naming requirement; the object must be `PG8Data`)
-  if ( !empty( $script_vars_page_loader ) )
-    wp_localize_script( $script_handle, 'PG8Data', $script_vars_page_loader );
+  // if ( !empty( $script_vars_page_loader ) )
+  //   wp_localize_script( $script_handle, 'PG8Data', $script_vars_page_loader );
 
   // Register and enqueue our main stylesheet with versioning based on last modified time
   wp_register_style( 'voidx-style', get_stylesheet_uri(), $dependencies = array(), filemtime( get_template_directory() . '/style.css' ) );
@@ -71,14 +71,14 @@ add_action( 'wp_enqueue_scripts', 'voidx_enqueue_scripts' );
 function voidx_update_script_vars( $script_vars = array() ) {
 
   // Non-destructively merge script variables if a particular condition is met (e.g. `is_archive()` or whatever)
-  if ( 1 == 1 ) {
-    $script_vars = array_merge( $script_vars, array(
-      'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
-      'nameSpaced'    => array(
-        'test1'         => __( 'Testing 1, 2, 3!', 'voidx' ),
-        'test2'         => __( 'This is easier than it looks :)', 'voidx' )
-    ) ) );
-  }
-  return $script_vars;
+  // if ( 1 == 1 ) {
+  //   $script_vars = array_merge( $script_vars, array(
+  //     'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
+  //     'nameSpaced'    => array(
+  //       'test1'         => __( 'Testing 1, 2, 3!', 'voidx' ),
+  //       'test2'         => __( 'This is easier than it looks :)', 'voidx' )
+  //   ) ) );
+  // }
+  // return $script_vars;
 }
 add_filter( 'voidx_script_vars', 'voidx_update_script_vars' );

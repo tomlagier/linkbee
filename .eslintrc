@@ -1,0 +1,43 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "ecmaFeatures": {
+    "arrowFunctions": true,
+    "blockBindings": true,
+    "classes": true,
+    "defaultParams": true,
+    "destructuring": true,
+    "forOf": true,
+    "generators": false,
+    "modules": true,
+    "spread": true,
+    "superInFunctions": true,
+    "templateStrings": true,
+    "globalReturn": false
+  },
+  "rules": {
+    "quotes": [1, "single"],
+    "no-console": 0,
+    "no-eq-null": 2,
+    "radix": 1,
+    "no-void": 2,
+    "no-throw-literal": 2,
+    "no-floating-decimal": 2,
+    "no-undef-init": 2,
+    "no-self-compare": 2,
+    "operator-linebreak": [2, "before"],
+    "no-var": 2,
+    "indent": [2, 2],
+    "brace-style": [2, "1tbs"],
+    "curly": [1, "multi-line"],
+    "object-shorthand": [2, "always"],
+    "no-underscore-dangle": 0,
+    "new-cap": [2, {"capIsNew": false}],
+    "space-after-keywords": [1, "always"],
+    "space-before-blocks": [1, "always"],
+    "space-before-function-paren": [1, "never"]
+  }
+}
