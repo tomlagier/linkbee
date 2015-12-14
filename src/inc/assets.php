@@ -24,22 +24,22 @@ function voidx_enqueue_scripts() {
   $script_vars_page_loader = '';
 
   // This conditional establishes whether the page loader bundle is loaded or not; you can turn this off completely from the theme configuration file if you wish (or just remove the code)
-  if ( VOIDX_SCRIPTS_PAGELOAD && ( is_archive() || is_home() || is_search() ) ) {
-    $script_name .= '-pageloader'; // This is used to generate the filename that the theme will serve to the user; it is additive to allow for multiple features that can be toggled in the theme configuration
-
-    global $wp_query;
-
-    // This chunk of code provisions the script with some important information it needs: What page are we on? And what is the page limit?
-    $max = $wp_query->max_num_pages;
-    $paged = ( get_query_var( 'paged' ) > 1 ) ? get_query_var( 'paged' ) : 1;
-
-    // Prepare script variables; note that these are separate from the rest of the script variables as this script requires everything in an object named `PG8Data`
-    $script_vars_page_loader = array(
-      'startPage'   => $paged,
-      'maxPages'    => $max,
-      'nextLink'    => next_posts( $max, false )
-    );
-  } // WP AJAX Page Loader configuration ends
+  // if ( VOIDX_SCRIPTS_PAGELOAD && ( is_archive() || is_home() || is_search() ) ) {
+  //   $script_name .= '-pageloader'; // This is used to generate the filename that the theme will serve to the user; it is additive to allow for multiple features that can be toggled in the theme configuration
+  //
+  //   global $wp_query;
+  //
+  //   // This chunk of code provisions the script with some important information it needs: What page are we on? And what is the page limit?
+  //   $max = $wp_query->max_num_pages;
+  //   $paged = ( get_query_var( 'paged' ) > 1 ) ? get_query_var( 'paged' ) : 1;
+  //
+  //   // Prepare script variables; note that these are separate from the rest of the script variables as this script requires everything in an object named `PG8Data`
+  //   $script_vars_page_loader = array(
+  //     'startPage'   => $paged,
+  //     'maxPages'    => $max,
+  //     'nextLink'    => next_posts( $max, false )
+  //   );
+  // } // WP AJAX Page Loader configuration ends
 
   // Default script name
   if ( empty( $script_name ) )
@@ -47,7 +47,7 @@ function voidx_enqueue_scripts() {
 
   // Load theme-specific JavaScript bundles with versioning based on last modified time; http://www.ericmmartin.com/5-tips-for-using-jquery-with-wordpress/
   // The handle is the same for each bundle since we're only loading one script; if you load others be sure to provide a new handle
-  // wp_enqueue_script( $script_handle, get_stylesheet_directory_uri() . '/js/' . $ns . $script_name . '.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/' . $ns . $script_name . '.js' ), true );
+  wp_enqueue_script( $script_handle, get_stylesheet_directory_uri() . '/js/' . $ns . $script_name . '.js', [], filemtime( get_template_directory() . '/js/' . $ns . $script_name . '.js' ), true );
 
   // Pass variables to JavaScript at runtime; see: http://codex.wordpress.org/Function_Reference/wp_localize_script
   $script_vars = apply_filters( 'voidx_script_vars', $script_vars );

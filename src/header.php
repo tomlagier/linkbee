@@ -12,15 +12,17 @@
 <body <?php body_class(); ?>>
   <div id="page" class="hfeed site">
     <div id="wrap-header" class="wrap-header">
-      <header id="masthead" class="site-header">
-        <div class="site-branding">
+      <header id="masthead" class="site-header module">
+        <div class="site-branding module-inner">
           <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-            <img src="<?php echo get_theme_mod('site_logo', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/images/logos/site-logo.png' ); ?>"
+            <img class="site-logo" src="<?php echo get_theme_mod('site_logo', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/images/logos/site-logo.png' ); ?>"
           </a></h1>
         </div>
         <nav id="site-navigation" class="site-navigation">
-          <button id="responsive-menu-toggle"><?php _e( 'Menu', 'voidx' ); ?></button>
-          <div id="responsive-menu"><?php wp_nav_menu( array( 'theme_location' => 'header', 'menu_id' => 'menu-header', 'menu_class' => 'menu-inline' ) ); ?></div>
+          <button class="menu-toggle">
+            <?php require_once(trailingslashit( get_stylesheet_directory() ) . '/components/hamburger.php'); ?>
+          </button>
+          <div class="main-menu"><?php wp_nav_menu( array( 'theme_location' => 'header', 'menu_id' => 'menu-header', 'menu_class' => 'menu-inline' ) ); ?></div>
         </nav>
       </header>
     </div>

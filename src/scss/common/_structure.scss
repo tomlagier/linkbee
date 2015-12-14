@@ -13,10 +13,12 @@ $body-background-color: #FFFFFF;
 /** Modules **/
 .module {
   width: 100%;
+  position: relative;
 }
 
 .module-inner {
   max-width: 1430px;
+  position: relative;
 }
 
 /** Columns **/

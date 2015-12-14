@@ -1,0 +1,39 @@
+$header-color: $white;
+$header-shadow-color: rgba(0, 0, 0, 0.2);
+$hamburger-color: #808285;
+
+.site-header {
+  background: $header-color;
+  box-shadow: 0 3px 7px $header-shadow-color;
+}
+
+.site-title {
+  text-align: center;
+  margin-top: 0;
+}
+
+.site-logo {
+  max-width: 350px;
+}
+
+.menu-toggle {
+  background: none;
+  font-size: 0;
+  border: 0;
+  outline: none;
+  @include transform-center('vertical');
+  right: 15px;
+
+  svg {
+    width: 40px;
+    height: 40px;
+
+    .svg-menu-toggle {
+      fill: $hamburger-color;
+    }
+  }
+}
+
+.main-menu {
+  display: none;
+}

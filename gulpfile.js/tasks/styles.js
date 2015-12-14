@@ -14,7 +14,8 @@ gulp.task('styles-libsass', function() {
   return gulp.src(config.build.src)
   .pipe(plumber())
   .pipe(plugins.sourcemaps.init())
-  .pipe(plugins.sass(config.libsass))
+  .pipe(plugins.sass(config.libsass)
+    .on('error', plugins.sass.logError))
   .pipe(plugins.postcss(processors))
   .pipe(plugins.sourcemaps.write('./')) // Writes an external sourcemap
   .pipe(gulp.dest(config.build.dest)); // Drops the unminified CSS file into the `build` folder

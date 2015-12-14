@@ -1,8 +1,18 @@
-// ==== CORE ==== //
+import $ from 'jquery';
+import Menu from './components/menu';
 
-// A simple wrapper for all your custom jQuery; everything in this file will be run on every page
-;(function($){
-  $(function(){
-    // Insert jQuery code here!
-  });
-}(jQuery));
+class App {
+  constructor() {
+
+  }
+
+  ready() {
+    let menu = new Menu();
+  }
+}
+
+let app = new App();
+
+$(() => {
+  app.ready();
+});

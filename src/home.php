@@ -8,3 +8,5 @@
 get_header(); ?>
 
 This is my home template
+
+<?php get_footer(); ?>
