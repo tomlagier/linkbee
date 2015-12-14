@@ -20,7 +20,7 @@
         </div>
         <nav id="site-navigation" class="site-navigation">
           <button class="menu-toggle">
-            <?php require_once(trailingslashit( get_stylesheet_directory() ) . '/components/hamburger.php'); ?>
+            <?php require_once(linkbee_path() . '/components/hamburger.php'); ?>
           </button>
           <div class="main-menu"><?php wp_nav_menu( array( 'theme_location' => 'header', 'menu_id' => 'menu-header', 'menu_class' => 'menu-inline' ) ); ?></div>
         </nav>

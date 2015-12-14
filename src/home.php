@@ -7,6 +7,12 @@
 
 get_header(); ?>
 
-This is my home template
+<div class="content-wrapper">
+  <?php require( linkbee_path() . 'modules/contact-form.php' ); ?>
+</div>
+
+<div class="overlays">
+  <?php require( linkbee_path() . 'modules/contact-form-overlay.php' ); ?>
+</div>
 
 <?php get_footer(); ?>

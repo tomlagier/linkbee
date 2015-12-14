@@ -1,19 +1,6 @@
 <?php
 
 function linkbee_customize_theme_settings( $wp_customize ) {
-	// $wp_customize->add_setting('header_link', array(
-	// 	'default' => '/'
-	// ));
-  //
-	// $wp_customize->add_section( 'attitude_refresh_header_link' , array(
-  //   'title'      => __( 'Header Link', 'attitude' ),
-  //   'priority'   => 50,
-	// ));
-  //
-	// $wp_customize->add_control(new WP_Customize_Control( $wp_customize, 'header_link', array(
-	// 	'section' => 'attitude_refresh_header_link',
-	// 	'settings' => 'header_link'
-	// )));
 
 	$wp_customize->add_setting('site_logo', array(
 		'default' => trailingslashit( get_stylesheet_directory_uri() ) . 'assets/images/logos/site-logo.png'
@@ -31,3 +18,16 @@ function linkbee_customize_theme_settings( $wp_customize ) {
 }
 
 add_action('customize_register', 'linkbee_customize_theme_settings');
+
+/**
+ * Helper function to get correctly formatted uri
+ * or file location
+ */
+
+function linkbee_uri() {
+	return trailingslashit( get_stylesheet_directory_uri() );
+}
+
+function linkbee_path() {
+	return trailingslashit( get_stylesheet_directory() );
+}

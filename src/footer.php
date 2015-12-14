@@ -1,10 +1,6 @@
       </div>
-      <div id="wrap-footer" class="wrap-footer">
-        <footer id="colophon" class="site-footer">
-          <nav id="site-footer-navigation">
-            <?php wp_nav_menu( array( 'theme_location' => 'footer', 'menu_id' => 'menu-footer', 'menu_class' => 'menu-inline' ) ); ?>
-          </nav>
-        </footer>
+      <div class="wrap-footer module">
+        <div class="copyright module-inner">&copy; <?php echo date('Y') ?> LinkBee. All Rights Reserved.</div>
       </div>
     </div>
   <?php wp_footer(); ?>
