@@ -14,8 +14,9 @@
     <div id="wrap-header" class="wrap-header">
       <header id="masthead" class="site-header">
         <div class="site-branding">
-          <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-          <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+          <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+            <img src="<?php echo get_theme_mod('site_logo', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/images/logos/site-logo.png' ); ?>"
+          </a></h1>
         </div>
         <nav id="site-navigation" class="site-navigation">
           <button id="responsive-menu-toggle"><?php _e( 'Menu', 'voidx' ); ?></button>

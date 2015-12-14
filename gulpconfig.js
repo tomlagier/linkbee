@@ -72,7 +72,7 @@ module.exports = {
     , sourcemap: true
   }
   , libsass: { // Requires the libsass implementation of Sass (included in this package)
-      includePaths: ['./src/scss', bower, modules] // Adds Bower and npm directories to the load path so you can @import directly
+      includePaths: ['./src/scss', bower, modules,require('node-bourbon').includePaths] // Adds Bower and npm directories to the load path so you can @import directly
     , precision: 6
     , onError: function(err) {
         return console.log(err);

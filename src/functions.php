@@ -11,7 +11,10 @@ require_once( trailingslashit( get_stylesheet_directory() ) . 'functions-config-
 require_once( trailingslashit( get_stylesheet_directory() ) . 'inc/assets.php' );
 
 // Required to demonstrate WP AJAX Page Loader (as WordPress doesn't ship with simple post navigation functions)
-require_once( trailingslashit( get_stylesheet_directory() ) . 'inc/navigation.php' );
+// require_once( trailingslashit( get_stylesheet_directory() ) . 'inc/navigation.php' );
+
+// Include LinkBee functions 
+require_once( trailingslashit( get_stylesheet_directory() ) . 'functions-linkbee.php' );
 
 // Only the bare minimum to get the theme up and running
 function voidx_setup() {

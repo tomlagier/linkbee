@@ -1,0 +1,64 @@
+$body-border-color: #CCCCCC;
+$module-padding : 130px;
+$body-background-color: #FFFFFF;
+
+/** Outer wrapper **/
+& {
+  width: 100%;
+  max-width: 1430px;
+  margin: 0 auto;
+  background: $body-background-color;
+}
+
+/** Modules **/
+.module {
+  width: 100%;
+}
+
+.module-inner {
+  max-width: 1430px;
+}
+
+/** Columns **/
+.column-wrapper {
+  font-size: 0;
+}
+
+@mixin columns($number) {
+  vertical-align: top;
+  display: inline-block;
+  font-size: $base-font-size;
+  width: 100% / $number;
+
+  @include breakpoint(tablet) {
+    width: 100%;
+  }
+}
+
+.col-2 {
+  @include columns(2);
+}
+
+.col-3 {
+  @include columns(3);
+}
+
+.col-4 {
+  @include columns(4);
+}
+
+/** Responsive **/
+
+.mobile-only {
+  display: none;
+
+  @include breakpoint(tablet) {
+    display: block;
+  }
+}
+
+.desktop-only {
+  @include breakpoint(tablet) {
+    display: none;
+  }
+}

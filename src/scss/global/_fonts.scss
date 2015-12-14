@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Samsung Sharp Sans';
+  src:  url('/us/fonts/SamsungSharpSans-Bold.eot') format('eot'),
+        url('/us/fonts/SamsungSharpSans-Bold.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Samsung Sharp Sans';
+  src:  url('/us/fonts/SamsungSharpSans-Medium.eot') format('eot'),
+        url('/us/fonts/SamsungSharpSans-Medium.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Samsung Sharp Sans';
+  src:  url('/us/fonts/SamsungSharpSans-Regular.eot') format('eot'),
+        url('/us/fonts/SamsungSharpSans-Regular.woff') format('woff');
+  font-weight: 200;
+}
+
+@mixin heading-font() {
+  font-family: 'Samsung Sharp Sans', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+@mixin body-font() {
+  font-family: 'Samsung Sharp Sans', Arial, Helvetica, sans-serif;
+  font-weight: 200;
+}
+
+@mixin disclaimer-font() {
+  font-family: 'InterfaceR', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+$base-font-size: 16px;

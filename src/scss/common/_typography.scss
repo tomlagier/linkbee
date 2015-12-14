@@ -1,0 +1,63 @@
+$dark-font-color: #333333;
+$light-font-color: #999999;
+$inverse-font-color: #FFFFFF;
+
+h1, h2, h3, h4, h5, h6 {
+  @include heading-font();
+  color: $dark-font-color;
+  margin-bottom: 20px;
+
+  &.inverse {
+    color: $inverse-font-color;
+  }
+}
+
+div, span, p {
+  @include body-font();
+  line-height: 1.6em;
+  color: $light-font-color;
+
+  &.inverse {
+    color: $inverse-font-color;
+  }
+}
+
+h1 {
+  font-size: em(66);
+  line-height: 1.15em;
+
+  @include breakpoint(1400px) {
+    font-size: em(60);
+  }
+
+  @include breakpoint(mobile) {
+    font-size: em(52);
+  }
+}
+
+h2 {
+  font-size: em(48);
+  line-height: 1.25em;
+
+  @include breakpoint(mobile) {
+    font-size: em(34);
+  }
+}
+
+h3 {
+  font-size: em(40);
+  line-height: 1.25em;
+
+  @include breakpoint(mobile) {
+    font-size: em(30);
+  }
+}
+
+p {
+  font-size: em(18);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
