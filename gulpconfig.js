@@ -49,7 +49,7 @@ module.exports = {
     entries: [src+'js/core.js']
   , dest: build+'js/' // Where the scripts end up in your theme
   , lint: {
-    src: [src+'js/**/*.js'] // Linting checks the quality of the code; we only lint custom scripts, not those under the various modules, so we're relying on the original authors to ship quality code
+    src: [src+'js/**/*.js', '!'+src+'js/libs/**/*.js'] // Linting checks the quality of the code; we only lint custom scripts, not those under the various modules, so we're relying on the original authors to ship quality code
   }
   , namespace: 'wp'
   },
@@ -114,5 +114,10 @@ module.exports = {
     , livereload:   build+'**/*'
     }
   , watcher: 'livereload' // Modify this value to easily switch between BrowserSync ('browsersync') and Livereload ('livereload')
+  },
+  static: {
+    src: [src+'**/*', '!**/*(*.js|*.scss|*.php|*.jpg|*.png|*.ico|*.gif|*.svg|*.map|*.jpeg)'],
+    build,
+    dist
   }
 }

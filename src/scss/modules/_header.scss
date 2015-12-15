@@ -13,7 +13,16 @@ $hamburger-color: #808285;
 }
 
 .site-logo {
-  max-width: 350px;
+  max-width: 300px;
+  transition: max-width 0.2s ease-out;
+
+  .is-sticky & {
+    max-width: 225px;
+  }
+}
+
+.sticky-wrapper {
+  transition: height 0.2s ease-out;
 }
 
 .menu-toggle {

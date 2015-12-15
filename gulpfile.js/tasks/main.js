@@ -18,8 +18,8 @@ gulp.task('dev', function(){
 gulp.task('setup', ['utils-normalize']);
 
 // Build a working copy of the theme
-gulp.task('build', ['images', 'scripts', 'styles', 'theme']);
+gulp.task('build', ['images', 'scripts', 'styles', 'theme', 'static-build']);
 
 // Dist task chain: wipe -> build -> clean -> copy -> images/styles
 // NOTE: this is a resource-intensive task!
-gulp.task('dist', ['images-dist', 'styles-dist']);
+gulp.task('dist', ['images-dist', 'styles-dist', 'static-dist']);
