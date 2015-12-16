@@ -7,18 +7,30 @@ $hamburger-color: #808285;
   box-shadow: 0 3px 7px $header-shadow-color;
 }
 
+.wrap-header {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  z-index: 10;
+
+  .admin-bar & {
+    top: 32px;
+  }
+}
+
 .site-title {
   text-align: center;
-  margin-top: 0;
+  margin: 0;
 }
 
 .site-logo {
-  max-width: 300px;
+  max-width: 275px;
   transition: max-width 0.2s ease-out;
 
-  .is-sticky & {
-    max-width: 225px;
-  }
+  // .is-sticky & {
+  //   max-width: 225px;
+  // }
 }
 
 .sticky-wrapper {

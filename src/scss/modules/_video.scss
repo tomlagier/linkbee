@@ -1,0 +1,36 @@
+@import 'video.js/dist/video-js.min';
+
+.video-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  z-index: 2;
+}
+
+.video-js {
+  @include transform-center();
+  transition: opacity 0.8s ease-out, z-index 0.8s 0s;
+
+  video {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .vjs-control-bar {
+    width: 80%;
+    bottom: 30px;
+    margin-left: 10%;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+
+  &:hover .vjs-control-bar:not(.vjs-user-inactive){
+    opacity: 1;
+  }
+
+  &.vjs-ended {
+    opacity: 0;
+    z-index: -1;
+  }
+}
