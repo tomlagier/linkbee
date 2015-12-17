@@ -28,32 +28,67 @@ $graphic-background-color: #FDF6C5;
     transform: translate(-50%, -50%);
     cursor: pointer;
 
+    .icon-text {
+      @include transform-center('vertical');
+      text-transform: uppercase;
+      transition: opacity 0.7s ease-out;
+      opacity: 0;
+      color: $linkbee-orange;
+      white-space: nowrap;
+    }
+
     &.lifestyle {
       top: 15%;
       left: 50%;
+
+      .icon-text {
+        padding-left: 10%;
+        left: 100%;
+      }
     }
 
     &.security {
       width: 6.8%;
       top: 29.2%;
       right: 26.1%;
+
+      .icon-text {
+        top: 55%;
+        padding-left: 10%;
+        left: 100%;
+      }
     }
 
     &.living {
       bottom: 22%;
       right: 25%;
       width: 10%;
+
+      .icon-text {
+        padding-left: 5%;
+        left: 100%;
+      }
     }
 
     &.energy {
       bottom: 21%;
       left: 34.5%;
       width: 8%;
+
+      .icon-text {
+        padding-right: 10%;
+        right: 100%;
+      }
     }
 
     &.heart {
       top: 31%;
       left: 33.5%;
+
+      .icon-text {
+        padding-right: 10%;
+        right: 100%;
+      }
     }
 
     &:hover {
@@ -61,6 +96,10 @@ $graphic-background-color: #FDF6C5;
         stroke-dashoffset: 0;
         stroke: $linkbee-orange;
         transition: stroke-dashoffset 0.7s ease-out, stroke 0.3s ease-out;
+      }
+
+      .icon-text {
+        opacity: 1;
       }
     }
   }
