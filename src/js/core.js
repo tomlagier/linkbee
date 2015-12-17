@@ -2,6 +2,7 @@ import $ from 'jquery';
 import Menu from './components/menu';
 import StickyHeader from './components/sticky-header';
 import VideoPlayer from './components/video-player';
+import Graphic from './components/graphic';
 
 let $$ = {
   desktopPlayer: $('#videojs-player-desktop')
@@ -20,6 +21,7 @@ class App {
       desktop: true
     });
 
+    let graphic = new Graphic();
 
   }
 }

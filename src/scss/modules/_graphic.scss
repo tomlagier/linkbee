@@ -1,25 +1,120 @@
+$graphic-background-color: #FDF6C5;
+
 .interactive-graphic {
-  &.desktop-only {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.jpg');
-    background-size: cover;
-    background-position: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: $graphic-background-color;
+  background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(circle at 50% 50%, #FFFEF8 0%, #FDF6C2 100%);
+  background-size: cover;
+  background-position: center center;
+
+  .graphic-wrapper {
+    @include transform-center();
   }
 
-  &.mobile-only {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.jpg');
-    background-size: cover;
-    background-position: center center;
+  .lightbulb {
+    @include transform-center();
+    top: 58%;
+    width: 19.75%;
   }
+
+  .icon-wrapper {
+    width: 9%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    &.lifestyle {
+      top: 15%;
+      left: 50%;
+    }
+
+    &.security {
+      width: 6.8%;
+      top: 29.2%;
+      right: 26.1%;
+    }
+
+    &.living {
+      bottom: 22%;
+      right: 25%;
+      width: 10%;
+    }
+
+    &.energy {
+      bottom: 21%;
+      left: 34.5%;
+      width: 8%;
+    }
+
+    &.heart {
+      top: 31%;
+      left: 33.5%;
+    }
+
+    &:hover {
+      .icon {
+        stroke-dashoffset: 0;
+        stroke: $linkbee-orange;
+        transition: stroke-dashoffset 0.7s ease-out, stroke 0.3s ease-out;
+      }
+    }
+  }
+
+  .icon {
+    fill: $icon-yellow;
+    stroke: transparent;
+    width: 100%;
+    transition: stroke-dashoffset 0.7s ease-out, stroke 0.5s 0.2s ease-out;
+
+
+    &.lifestyle-icon {
+      stroke-width: 3px;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+
+    &.security-icon {
+      stroke-width: 1.3px;
+      stroke-dasharray: 150;
+      stroke-dashoffset: 150;
+    }
+
+    &.living-icon {
+      stroke-width: 1.7px;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+    }
+
+    &.energy-icon {
+      stroke-width: 3px;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+    }
+
+    &.heart-icon {
+      stroke-width: 15px;
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;
+    }
+  }
+  // &.desktop-only {
+  //
+  // }
+
+  // &.mobile-only {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 1;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.jpg');
+  //   background-size: cover;
+  //   background-position: center center;
+  // }
 }

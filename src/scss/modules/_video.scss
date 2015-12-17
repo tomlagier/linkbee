@@ -5,12 +5,12 @@
   position: relative;
   overflow: hidden;
   display: block;
-  z-index: 2;
 }
 
 .video-js {
   @include transform-center();
-  transition: opacity 0.8s ease-out, z-index 0.8s 0s;
+  z-index: 2;
+  transition: opacity 0.8s ease-out, z-index 0.9s 0s ease-out;
 
   video {
     width: 100% !important;
@@ -31,6 +31,6 @@
 
   &.vjs-ended {
     opacity: 0;
-    z-index: -1;
+    z-index: 1;
   }
 }
