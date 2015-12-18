@@ -17,6 +17,7 @@ $body-background-color: #FFFFFF;
 }
 
 .module-inner {
+  margin: 0 auto;
   max-width: 1430px;
   position: relative;
   padding-left: 20px;
@@ -49,6 +50,10 @@ $body-background-color: #FFFFFF;
 
 .col-4 {
   @include columns(4);
+}
+
+.col-5 {
+  @include columns(5);
 }
 
 /** Responsive **/

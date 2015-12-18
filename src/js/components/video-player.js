@@ -46,9 +46,9 @@ export default class VideoPlayer {
   setupDesktop() {
     this.sizeDesktop();
 
-    $$.window.on('resize orientationchange', () => {
-      this.sizeDesktop();
-    })
+    // $$.window.on('resize orientationchange', () => {
+    //   this.sizeDesktop();
+    // })
   }
 
   sizeDesktop() {

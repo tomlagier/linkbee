@@ -4,25 +4,99 @@ import videojs from 'video.js';
 
 let $$ = {
   graphicWrapper: $('.graphic-wrapper'),
-  window: $(window)
+  benefitTrigger: $('.interactive-graphic .icon-wrapper'),
+  benefit: $('.benefit'),
+  benefits: $('.benefits'),
+  window: $(window),
+  adminBar: $('.admin-bar'),
+  header: $('.wrap-header'),
 }
+
+const PLAYER_RATIO = 1.7777;
 
 export default class Graphic {
   constructor() {
     $$.videoPlayer = $('#videojs-player-desktop');
+    $$.videoPlayerWrapper = $('.video-wrapper.desktop-only');
     this.setupGraphic();
   }
 
   setupGraphic() {
-    this.sizeGraphic();
+    this.sizeGraphic(this.getContainerHeight());
+    this.bindEvents();
+  }
 
-    $(window).on('resize orientationchange', this.sizeGraphic.bind(this));
+  bindEvents() {
+    $(window).on('resize orientationchange', () => {
+      let containerHeight = this.getContainerHeight();
+      this.sizeGraphic(containerHeight);
+      this.sizeVideo(containerHeight);
+    });
+    $$.benefitTrigger.on('click', evt => {
+      this.activateBenefit(evt);
+      this.slideBenefits();
+    });
+
+    $$.benefit.on('click', this.activateBenefit.bind(this));
+  }
+
+  activateBenefit(evt) {
+    const $target = $(evt.currentTarget);
+    const target = $target.attr('data-benefit');
+    $$.benefit.removeClass('active');
+    $$.benefitTrigger.removeClass('active');
+
+    $(`[data-benefit=${target}]`).addClass('active');
+  }
+
+  slideBenefits() {
+    this.benefitsSlid = true;
+    $$.benefits.addClass('slid');
+    let containerHeight = this.getContainerHeight();
+    this.sizeGraphic(containerHeight);
+    this.sizeVideo(containerHeight);
+  }
+
+  getContainerHeight() {
+    let headerHeight = $$.header.height();
+    if ($$.adminBar.length) headerHeight += 32;
+    if (this.benefitsSlid) headerHeight += $$.benefits.height();
+
+    let containerHeight = $(window).height() - headerHeight;
+    return containerHeight;
   }
 
   //Set container size, set video to fill container
   //Set video to fill container
-  sizeGraphic() {
-    $$.graphicWrapper.width($$.videoPlayer.width());
-    $$.graphicWrapper.height($$.videoPlayer.height());
+  sizeGraphic(containerHeight) {
+
+    if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
+      $$.graphicWrapper.css({
+        height: '100%',
+        width: containerHeight * PLAYER_RATIO
+      });
+    } else {
+      $$.graphicWrapper.css({
+        height: $$.window.width() / PLAYER_RATIO,
+        width: '100%'
+      });
+    }
+  }
+
+  sizeVideo(containerHeight) {
+
+    $$.videoPlayerWrapper.height(containerHeight);
+
+    if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
+      $$.videoPlayer.css({
+        height: '100%',
+        width: containerHeight * PLAYER_RATIO
+      });
+    } else {
+      $$.videoPlayer.css({
+        height: $$.window.width() / PLAYER_RATIO,
+        width: '100%'
+      });
+    }
   }
 }

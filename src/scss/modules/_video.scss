@@ -5,7 +5,8 @@
   position: relative;
   overflow: hidden;
   display: block;
-  visibility: hidden;
+  // visibility: hidden;
+  transition: height 0.3s ease-out;
 }
 
 .video-js {

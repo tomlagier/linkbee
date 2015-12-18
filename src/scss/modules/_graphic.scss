@@ -14,6 +14,7 @@ $graphic-background-color: #FDF6C5;
 
   .graphic-wrapper {
     @include transform-center();
+    transition: width 0.3s ease-out, height 0.3s ease-out;
   }
 
   .lightbulb {
@@ -35,6 +36,8 @@ $graphic-background-color: #FDF6C5;
       opacity: 0;
       color: $linkbee-orange;
       white-space: nowrap;
+      font-size: em(20);
+      letter-spacing: 0.25em;
     }
 
     &.lifestyle {
@@ -91,7 +94,7 @@ $graphic-background-color: #FDF6C5;
       }
     }
 
-    &:hover {
+    &:hover, &.active {
       .icon {
         stroke-dashoffset: 0;
         stroke: $linkbee-orange;
@@ -141,19 +144,4 @@ $graphic-background-color: #FDF6C5;
       stroke-dashoffset: 2000;
     }
   }
-  // &.desktop-only {
-  //
-  // }
-
-  // &.mobile-only {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   z-index: 1;
-  //   width: 100%;
-  //   height: 100%;
-  //   background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.jpg');
-  //   background-size: cover;
-  //   background-position: center center;
-  // }
 }

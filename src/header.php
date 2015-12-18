@@ -15,7 +15,7 @@
       <header id="masthead" class="site-header module">
         <div class="site-branding module-inner">
           <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-            <img class="site-logo" src="<?php echo get_theme_mod('site_logo', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/images/logos/site-logo.png' ); ?>"
+            <img class="site-logo" src="<?php echo get_theme_mod('site_logo', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/images/logos/site-logo.png' ); ?>" />
           </a></h1>
         </div>
         <nav id="site-navigation" class="site-navigation">

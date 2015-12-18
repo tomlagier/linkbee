@@ -1,0 +1,65 @@
+$benefits-copy-color: #939598;
+
+.benefits {
+  transition: margin 0.5s ease-out;
+  background: $white;
+
+  .module-inner {
+    max-width: 1200px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+
+    &:hover .benefit {
+      opacity: 0.6;
+    }
+  }
+
+  &.slid .benefit {
+    opacity: 0.6;
+  }
+
+  .benefit {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+
+    &:hover, &.active {
+      opacity: 1 !important;
+      transform: scale(1.2);
+    }
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: em(18);
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: em(13);
+    margin: 0;
+    padding: 0 20px;
+    color: $benefits-copy-color;
+  }
+
+  .energy h3 {
+    color: $energy-color;
+  }
+
+  .health h3 {
+    color: $health-color;
+  }
+
+  .lifestyle h3 {
+    color: $lifestyle-color;
+  }
+
+  .security h3 {
+    color: $security-color;
+  }
+
+  .living h3 {
+    color: $living-color;
+  }
+}
