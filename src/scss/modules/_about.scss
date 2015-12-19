@@ -1,6 +1,8 @@
 $about-font-color: #747476;
 
 .about {
+  @include divider();
+  
   .module-inner {
     padding-top: 45px;
     padding-bottom: 45px;
@@ -10,7 +12,7 @@ $about-font-color: #747476;
     text-align: center;
     max-width: 1000px;
     margin: 0 auto;
-    
+
     h2 {
       color: $health-color;
       text-transform: uppercase;

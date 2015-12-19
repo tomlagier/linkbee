@@ -1,0 +1,85 @@
+$advisors-copy-color: #343434;
+
+.advisors {
+  .module-inner {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .upper-text {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+      color: $health-color;
+      text-transform: uppercase;
+      font-size: em(40);
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  .lower-text {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    display: table;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+
+      a {
+        color: $health-color;
+      }
+    }
+
+    p {
+      font-size: em(13);
+    }
+
+    a {
+      font-weight: bold;
+      text-decoration: none;
+      color: $advisors-copy-color;
+    }
+
+    .icon-wrapper, .text-wrapper {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    .icon-wrapper {
+      margin-top: 10px;
+      width: 150px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .text-wrapper {
+      padding-right: 25px;
+    }
+  }
+
+  .loeb {
+    padding-right: 15px;
+
+    .icon-wrapper {
+      padding-right: 40px;
+      padding-left: 40px;
+      padding-top: 20px;
+    }
+  }
+
+  .pegasus {
+    padding-left: 15px;
+
+    .icon-wrapper {
+      padding-right: 20px;
+      padding-top: 30px;
+    }
+  }
+}
