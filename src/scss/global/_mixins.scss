@@ -117,3 +117,19 @@ Breakpoint Usage:
     font-style: $style;
   }
 }
+
+@mixin divider() {
+  &:after {
+    content: '';
+    @include transform-center('horizontal');
+    width: 100%;
+    max-width: 1260px;
+    margin: 0 auto;
+    height: 4px;
+    bottom: -2px;
+    background-image: url('#{$imagePath}/ui/divider.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+}

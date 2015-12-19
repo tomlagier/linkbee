@@ -11,11 +11,15 @@ $benefits-copy-color: #939598;
 
     &:hover .benefit {
       opacity: 0.6;
+      transform: scale(0.8);
     }
+
+    @include divider();
   }
 
   &.slid .benefit {
     opacity: 0.6;
+    transform: scale(0.95);
   }
 
   .benefit {
@@ -25,7 +29,7 @@ $benefits-copy-color: #939598;
 
     &:hover, &.active {
       opacity: 1 !important;
-      transform: scale(1.2);
+      transform: scale(1.2) !important;
     }
   }
 

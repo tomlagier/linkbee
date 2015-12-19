@@ -15,6 +15,7 @@ get_header(); ?>
   </div>
   <?php require( linkbee_path() . 'modules/benefits.php' );
     require( linkbee_path() . 'modules/about.php' );
+    require( linkbee_path() . 'modules/advisors.php' );
     require( linkbee_path() . 'modules/contact-form.php' );
   ?>
 </div>

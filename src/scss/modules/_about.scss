@@ -1,0 +1,27 @@
+$about-font-color: #747476;
+
+.about {
+  .module-inner {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .upper-text {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    h2 {
+      color: $health-color;
+      text-transform: uppercase;
+      font-size: em(40);
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: em(18);
+      color: $about-font-color;
+    }
+  }
+}
