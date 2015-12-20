@@ -13,6 +13,7 @@ let $$ = {
   header: $('.wrap-header'),
   videoWrapperDesktop: $('.video-wrapper.desktop-only'),
   videoPlayerDesktop: $('#videojs-player-desktop'),
+  interactiveGraphic: $('.interactive-graphic'),
   window: $(window)
 }
 
@@ -38,6 +39,10 @@ export default class VideoPlayer {
       () => {
         $$.videoPlayerDesktop = $('#videojs-player-desktop');
         callbacks.forEach( callback => callback())
+
+        setTimeout(() => {
+          $$.interactiveGraphic.addClass('switch-background');
+        }, 6000);
       });
   }
 

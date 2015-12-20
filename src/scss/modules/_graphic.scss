@@ -1,4 +1,5 @@
-$graphic-background-color: #FDF6C5;
+$graphic-starting-background-color: #240302;
+$graphic-ending-background-color: #FDF6C5;
 
 .interactive-graphic {
   position: absolute;
@@ -7,13 +8,18 @@ $graphic-background-color: #FDF6C5;
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: $graphic-background-color;
-  background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(circle at 50% 50%, #FFFEF8 0%, #FDF6C2 100%);
-  background-size: cover;
-  background-position: center center;
+  background-color: $graphic-starting-background-color;
+  transition: background 1s ease-out;
+
+  &.switch-background {
+    background-color: $graphic-ending-background-color;
+  }
 
   .graphic-wrapper {
     @include transform-center();
+    background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(circle at 50% 50%, #FFFEF8 0%, #FDF6C2 100%);
+    background-size: cover;
+    background-position: center center;
     transition: width 0.3s ease-out, height 0.3s ease-out;
   }
 
