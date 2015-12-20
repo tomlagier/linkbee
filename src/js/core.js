@@ -3,6 +3,7 @@ import Menu from './components/menu';
 import StickyHeader from './components/sticky-header';
 import VideoPlayer from './components/video-player';
 import Graphic from './components/graphic';
+import './libs/shapes-polyfill.js';
 
 let $$ = {
   desktopPlayer: $('#videojs-player-desktop')

@@ -2,7 +2,7 @@ $about-font-color: #747476;
 
 .about {
   @include divider();
-  
+
   .module-inner {
     padding-top: 45px;
     padding-bottom: 45px;
@@ -25,5 +25,103 @@ $about-font-color: #747476;
       font-size: em(18);
       color: $about-font-color;
     }
+  }
+}
+
+.about-hexagon-wrapper {
+  display: inline-block;
+  font-size: $base-font-size;
+  width: 200px;
+  height: 235px;
+  position: relative;
+  margin-right: 5px;
+
+  &.has-text{
+    cursor: pointer;
+  }
+
+  &.has-text:hover {
+    .employee-image {
+      opacity: 0.3;
+    }
+
+    .text-hexagon {
+      opacity: 1;
+    }
+  }
+
+  .image-hexagon {
+    width: 200px;
+    height: 235px;
+  }
+
+  .employee-image {
+    transition: opacity 0.3s ease-out;
+  }
+
+  .text-hexagon {
+    @include transform-center();
+    text-align: center;
+    transition: opacity 0.3s ease-out;
+    opacity: 0;
+    color: $white;
+    max-width: 63%;
+    max-height: 51%;
+
+    .title {
+      font-size: em(13);
+      text-transform: uppercase;
+      color: $white;
+      font-weight: bold;
+      margin-bottom: -3px;
+    }
+
+    .name {
+      font-size: em(16);
+      text-transform: uppercase;
+      color: $white;
+      white-space: nowrap;
+      margin-bottom: 3px;
+      font-weight: bold;
+    }
+
+    .blurb {
+      font-size: em(12);
+      line-height: 1.1em;
+      color: $white;
+
+      * {
+        color: white;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.about-hexagons {
+  max-width: 870px;
+  margin: 55px auto 0;
+  font-size: 0;
+  text-align: center;
+  position: relative;
+
+  .about-lb-wrapper {
+    position: absolute;
+    top: 89px;
+    right: -22px;
+    width: 0;
+    height: 0;
+
+    img {
+      @include transform-center();
+    }
+  }
+}
+
+.hex-row {
+  margin-bottom: -51px;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
