@@ -37,12 +37,21 @@ $advisors-copy-color: #343434;
 
     p {
       font-size: em(13);
+      margin-top: 5px;
+
+      a {
+        font-weight: bold;
+      }
     }
 
     a {
-      font-weight: bold;
       text-decoration: none;
       color: $advisors-copy-color;
+      transition: opacity 0.3s ease-out;
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
 
     .icon-wrapper, .text-wrapper {
