@@ -6,7 +6,7 @@
  */
 
 get_header(); ?>
-
+<div class="loader"></div>
 <div class="content-wrapper">
   <div class="module hero">
   <?php
