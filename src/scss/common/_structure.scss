@@ -2,13 +2,17 @@ $body-border-color: #CCCCCC;
 $module-padding : 130px;
 $body-background-color: #FFFFFF;
 
-/** Outer wrapper **/
-& {
-  width: 100%;
-  max-width: 1260px;
-  margin: 0 auto;
-  background: $body-background-color;
+html {
+  overflow-x: hidden;
 }
+
+/** Outer wrapper **/
+// & {
+//   width: 100%;
+//   max-width: 1260px;
+//   margin: 0 auto;
+//   background: $body-background-color;
+// }
 
 /** Modules **/
 .module {

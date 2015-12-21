@@ -55,7 +55,7 @@ function print_face_hexagon($employee) {
   $text_contents = "<div class='text-hexagon'>
     <div class='title'>$title</div>
     <div class='name'>$name</div>
-    <div class='blurb'>blurb</div>
+    <div class='blurb'>$blurb</div>
   </div>";
 
   print_hexagon($color, $svg_contents, $text_contents);

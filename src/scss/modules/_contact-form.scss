@@ -1,3 +1,5 @@
+$form-border-color: #58595B;
+
 .contact-form-trigger {
   padding: 30px 0;
   background-color: $linkbee-yellow;
@@ -23,6 +25,166 @@
     &:hover {
       background-color: $linkbee-orange;
       color: $linkbee-yellow;
+    }
+  }
+}
+
+.contact-form-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+
+  transition: opacity 0.4s ease-out, z-index 0.4s 0s;
+
+  &.active {
+    z-index: 200;
+    opacity: 1;
+    transition: opacity 0.4s ease-out, z-index 0s 0s;
+  }
+}
+
+.contact-form-wrapper {
+  @include transform-center('horizontal');
+  width: calc(100% - 30px);
+  max-width: 980px;
+  top: 40px;
+  padding: 30px 45px;
+  margin-bottom: 40px;
+  background: url('#{$imagePath}/backgrounds/contact-background.jpg');
+  background-size: cover;
+  background-position: center center;
+  border: 1px solid $form-border-color;
+
+  .upper-text {
+    position: relative;
+    text-align: center;
+    margin-bottom: 45px;
+    padding-bottom: 20px;
+
+    @include divider();
+
+    h3 {
+      color: $health-color;
+      font-size: em(48);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+  }
+
+  .admin-bar & {
+    top: 72px;
+  }
+
+  .close {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    padding: 10px;
+  }
+}
+
+html.form-active {
+  overflow: hidden;
+
+  .wrap-header, .content-wrapper {
+    transition: filter 0.4s;
+    filter: blur(5px);
+  }
+}
+
+.contact-form {
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: center;
+
+  input, select, textarea {
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 8px 15px;
+    border: 1px solid $form-border-color;
+  }
+
+  select {
+    appearance: none;
+    border-radius: 0;
+    background-color: $white;
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-after {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: em(18);
+  }
+
+  .submit-button {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    width: 70px;
+    display: inline-block;
+    color: white;
+    background-color: $linkbee-orange;
+    transition: background-color 0.3s ease-out;
+    cursor: pointer;
+    position: relative;
+    margin: 15px 0;
+
+    &:hover {
+      background-color: darken($linkbee-orange, 10%);
+
+      &:before {
+        border-bottom-color: darken($linkbee-orange, 10%);
+      }
+
+      &:after {
+        border-top-color: darken($linkbee-orange, 10%);
+      }
+    }
+
+    &:before, &:after {
+      content: '';
+      cursor: pointer;
+      border-color: $linkbee-orange;
+      border-style: solid;
+      transition: border-color 0.3s ease-out;
+    }
+
+    &:before {
+      border-bottom: 20px #FF8201 solid;
+      border-left: 35px transparent solid;
+      border-right: 35px transparent solid;
+      border-top: 0;
+      width: 0;
+      height: 0;
+      @include transform-center('horizontal');
+      top: -20px;
+    }
+
+    &:after {
+      border-top: 20px #FF8201 solid;
+      border-left: 35px transparent solid;
+      border-right: 35px transparent solid;
+      border-bottom: 0;
+      width: 0;
+      height: 0;
+      @include transform-center('horizontal');
+      bottom: -20px;
     }
   }
 }

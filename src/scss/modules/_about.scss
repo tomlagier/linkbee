@@ -65,8 +65,10 @@ $about-font-color: #747476;
     transition: opacity 0.3s ease-out;
     opacity: 0;
     color: $white;
-    max-width: 63%;
+    max-width: 96%;
     max-height: 51%;
+    width: 100%;
+    height: 100%;
 
     .title {
       font-size: em(13);
@@ -80,9 +82,9 @@ $about-font-color: #747476;
       font-size: em(16);
       text-transform: uppercase;
       color: $white;
-      white-space: nowrap;
       margin-bottom: 3px;
       font-weight: bold;
+      line-height: 1.2em;
     }
 
     .blurb {

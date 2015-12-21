@@ -35,7 +35,7 @@ function create_layout($index) {
         $layouts[4][3] = 'face';
         $layouts[4][5] = 'face';
         $layouts[4][7] = 'face';
-        $layouts[4][9] = 'face';
+        $layouts[4][12] = 'face';
         break;
       case 5:
         $layouts[5][2] = 'face';

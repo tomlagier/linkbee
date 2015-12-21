@@ -35,4 +35,13 @@
     opacity: 0;
     z-index: 1;
   }
+
+  .vjs-time-control {
+    top: 6px;
+  }
+
+  .vjs-play-progress:before {
+    top: -0.633333em;
+    right: -0.3em;  
+  }
 }
