@@ -1,0 +1,41 @@
+$menu-background-color: #E7E7E7;
+.main-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  background: white;
+  width: 250px;
+  box-shadow: 3px 8px 3px 5px rgba(0,0,0,0.25), inset 0px 4px 3px -2px rgba(0,0,0,0.25);
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  .menu-inline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-item {
+    border-bottom: 1px solid darken($menu-background-color, 20%);
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: $text-grey;
+      padding: 15px 20px 15px 30px;
+      text-transform: uppercase;
+      transition: background 0.3s ease-out, color 0.3s ease-out;
+
+      &:hover {
+        background: $menu-background-color;
+        color: darken($text-grey, 15%);
+      }
+    }
+  }
+}
