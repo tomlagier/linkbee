@@ -68,21 +68,19 @@ $about-font-color: #747476;
     max-width: 96%;
     max-height: 51%;
     width: 100%;
-    height: 100%;
 
     .title {
       font-size: em(13);
       text-transform: uppercase;
       color: $white;
       font-weight: bold;
-      margin-bottom: -3px;
     }
 
     .name {
       font-size: em(16);
       text-transform: uppercase;
       color: $white;
-      margin-bottom: 3px;
+      margin-bottom: 0;
       font-weight: bold;
       line-height: 1.2em;
     }

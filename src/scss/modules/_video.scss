@@ -21,13 +21,35 @@
 
   .vjs-control-bar {
     width: 80%;
-    bottom: 30px;
+    bottom: 10px;
     margin-left: 10%;
     opacity: 0;
     transition: opacity 0.3s ease-out;
   }
 
-  &:hover .vjs-control-bar:not(.vjs-user-inactive){
+  .skip-link {
+    position: absolute;
+    bottom: 40px;
+    z-index: 201;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+
+    .button {
+      color: $linkbee-orange;
+      border-width: 1px;
+      margin-left: 0;
+
+      &:hover {
+        color: $linkbee-yellow;
+      }
+    }
+  }
+
+  &:hover .vjs-control-bar:not(.vjs-user-inactive), &:hover:not(.vjs-user-inactive) .skip-link{
     opacity: 1;
   }
 
@@ -42,6 +64,6 @@
 
   .vjs-play-progress:before {
     top: -0.633333em;
-    right: -0.3em;  
+    right: -0.3em;
   }
 }

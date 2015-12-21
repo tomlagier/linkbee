@@ -17,8 +17,9 @@ $graphic-ending-background-color: #FDF6C5;
 
   .graphic-wrapper {
     @include transform-center();
-    background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(circle at 50% 50%, #FFFEF8 0%, #FDF6C2 100%);
-    background-size: cover;
+    background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(farthest-side at 50% 50%, #FFFEF8 0%, #FDF6C2 100%);
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center center;
     transition: width 0.3s ease-out, height 0.3s ease-out;
   }
@@ -44,7 +45,7 @@ $graphic-ending-background-color: #FDF6C5;
       color: $linkbee-orange;
       white-space: nowrap;
       font-size: em(20);
-      letter-spacing: 0.25em;
+      letter-spacing: 0.1em;
     }
 
     &.lifestyle {
@@ -106,6 +107,7 @@ $graphic-ending-background-color: #FDF6C5;
         stroke-dashoffset: 0;
         stroke: $linkbee-orange;
         transition: stroke-dashoffset 0.7s ease-out, stroke 0.3s ease-out;
+        animation-play-state: paused;
       }
 
       .icon-text {
@@ -125,30 +127,35 @@ $graphic-ending-background-color: #FDF6C5;
       stroke-width: 3px;
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
+      @include float-animation(0.1s);
     }
 
     &.security-icon {
       stroke-width: 1.3px;
       stroke-dasharray: 150;
       stroke-dashoffset: 150;
+      @include float-animation(0.5s);
     }
 
     &.living-icon {
       stroke-width: 1.7px;
       stroke-dasharray: 200;
       stroke-dashoffset: 200;
+      @include float-animation(0.3s);
     }
 
     &.energy-icon {
       stroke-width: 3px;
       stroke-dasharray: 600;
       stroke-dashoffset: 600;
+      @include float-animation(0.9s);
     }
 
     &.heart-icon {
       stroke-width: 15px;
       stroke-dasharray: 2000;
       stroke-dashoffset: 2000;
+      @include float-animation(0.7s);
     }
   }
 }

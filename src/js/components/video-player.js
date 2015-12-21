@@ -14,6 +14,8 @@ let $$ = {
   videoWrapperDesktop: $('.video-wrapper.desktop-only'),
   videoPlayerDesktop: $('#videojs-player-desktop'),
   interactiveGraphic: $('.interactive-graphic'),
+  skipLink: $('.skip-link'),
+  skipLinkTrigger: $('.skip-link .button'),
   window: $(window)
 }
 
@@ -38,12 +40,13 @@ export default class VideoPlayer {
       //Execute all callbacks
       () => {
         $$.videoPlayerDesktop = $('#videojs-player-desktop');
-        callbacks.forEach( callback => callback())
+        this.moveSkipLink();
+        callbacks.forEach( callback => callback());
 
-        setTimeout(() => {
-          $$.interactiveGraphic.addClass('switch-background');
-        }, 6000);
+        setTimeout(this.toggleBackground.bind(this), 6000);
       });
+
+    $$.skipLinkTrigger.on('click', this.skipVideo.bind(this))
   }
 
   //Set container size, set video to fill container
@@ -54,6 +57,19 @@ export default class VideoPlayer {
     // $$.window.on('resize orientationchange', () => {
     //   this.sizeDesktop();
     // })
+  }
+
+  moveSkipLink() {
+    $('.video-js').append($$.skipLink);
+  }
+
+  toggleBackground() {
+    $$.interactiveGraphic.addClass('switch-background');
+  }
+
+  skipVideo() {
+    this.toggleBackground();
+    this.player.currentTime(this.player.duration());
   }
 
   sizeDesktop() {

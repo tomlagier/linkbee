@@ -14,6 +14,6 @@ export default class Loader {
   hideLoader() {
     setTimeout(() => {
       $$.loader.addClass('hidden');
-    }, 1500);
+    }, 500);
   }
 }

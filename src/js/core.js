@@ -19,14 +19,11 @@ class App {
   ready() {
     let menu = new Menu();
     let stickyHeader = new StickyHeader();
-
     let videoPlayer = new VideoPlayer($$.desktopPlayer[0], {
       autoplay: true,
       desktop: true
     });
-
     let graphic = new Graphic();
-
     let contactForm = new ContactForm();
 
   }

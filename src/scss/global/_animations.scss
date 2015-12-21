@@ -1,0 +1,51 @@
+@keyframes float {
+  0% {
+    transform: translate(3%, 3%);
+  }
+
+  12.5% {
+    transform: translate(5%, 0);
+  }
+
+  25% {
+    transform: translate(3%, -3%);
+  }
+
+  37.5% {
+    transform: translate(0, -5%);
+  }
+
+  50% {
+    transform: translate(-3%, -3%);
+  }
+
+  62.5% {
+    transform: translate(-5%, 0);
+  }
+
+  75% {
+    transform: translate(-3%, 3%);
+  }
+
+  87.5% {
+    transform: translate(0, 5%);
+  }
+
+  100% {
+    transform: translate(3%, 3%);
+  }
+}
+
+@mixin float-animation($offset:0) {
+  animation-duration: 2s;
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: $offset;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}

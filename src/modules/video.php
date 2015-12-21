@@ -4,6 +4,9 @@
     <source src="<?php echo linkbee_uri() ?>assets/videos/animation-desktop.webm" type="video/webm" data-video-ext="webm"/>
     <source src="<?php echo linkbee_uri() ?>assets/videos/animation-desktop.ogv" type="video/ogg" data-video-ext="ogv"/>
   </video>
+  <div class="skip-link">
+    <a class="button">Skip to Benefits</a>
+  </div>
 </div>
 
 <div class="video-wrapper mobile-only"></div>

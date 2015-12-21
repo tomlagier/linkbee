@@ -1,3 +1,17 @@
 .button {
-  
+  margin-left: 20px;
+  padding: 3px 20px;
+  border-radius: 4px;
+  border: 2px solid $linkbee-orange;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: em(12);
+  transition: color 0.3s ease-out, background 0.3s ease-out;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $linkbee-orange;
+    color: $linkbee-yellow;
+  }
 }

@@ -19,19 +19,18 @@
 //   font-weight: 200;
 // }
 
+@include font('proximanova-bold-webfont', 'ProximaNova', 700);
+@include font('proximanova-light-webfont', 'ProximaNova', 300);
+@include font('proximanova-regular-webfont', 'ProximaNova');
+
 @mixin heading-font() {
-  font-family: 'Samsung Sharp Sans', Arial, Helvetica, sans-serif;
+  font-family: 'ProximaNova', Arial, Helvetica, sans-serif;
   font-weight: 700;
 }
 
 @mixin body-font() {
-  font-family: 'Samsung Sharp Sans', Arial, Helvetica, sans-serif;
-  font-weight: 200;
-}
-
-@mixin disclaimer-font() {
-  font-family: 'InterfaceR', Arial, Helvetica, sans-serif;
-  font-weight: 400;
+  font-family: 'ProximaNova', Arial, Helvetica, sans-serif;
+  font-weight: 300;
 }
 
 $base-font-size: 16px;

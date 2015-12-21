@@ -9,6 +9,7 @@ let $$ = {
   benefits: $('.benefits'),
   window: $(window),
   adminBar: $('.admin-bar'),
+  skipLinkTrigger: $('.skip-link .button'),
   header: $('.wrap-header'),
 }
 
@@ -36,6 +37,8 @@ export default class Graphic {
       this.activateBenefit(evt);
       this.slideBenefits();
     });
+
+    $$.skipLinkTrigger.on('click', this.slideBenefits.bind(this));
 
     $$.benefit.on('click', this.activateBenefit.bind(this));
   }

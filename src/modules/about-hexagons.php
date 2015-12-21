@@ -53,8 +53,8 @@ function print_face_hexagon($employee) {
   $name = $employee->post_title;
   $blurb = $employee->post_content;
   $text_contents = "<div class='text-hexagon'>
-    <div class='title'>$title</div>
     <div class='name'>$name</div>
+    <div class='title'>$title</div>
     <div class='blurb'>$blurb</div>
   </div>";
 
