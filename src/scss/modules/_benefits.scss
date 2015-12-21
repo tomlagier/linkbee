@@ -10,16 +10,16 @@ $benefits-copy-color: #939598;
     padding-bottom: 45px;
 
     &:hover .benefit {
-      opacity: 0.6;
-      transform: scale(0.95);
+      opacity: 0.5;
+      transform: scale(0.97);
     }
 
     @include divider();
   }
 
   &.slid .benefit {
-    opacity: 0.6;
-    transform: scale(0.95);
+    opacity: 0.5;
+    transform: scale(0.97);
   }
 
   .benefit {
@@ -29,15 +29,15 @@ $benefits-copy-color: #939598;
 
     &:hover, &.active {
       opacity: 1 !important;
-      transform: scale(1.2) !important;
+      transform: scale(1.12) !important;
     }
   }
 
   h3 {
     text-transform: uppercase;
     font-size: em(18);
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
   }
 
   p {
@@ -45,6 +45,7 @@ $benefits-copy-color: #939598;
     margin: 0;
     padding: 0 20px;
     color: $benefits-copy-color;
+    line-height: 1.5em;
   }
 
   .energy h3 {

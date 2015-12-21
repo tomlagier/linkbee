@@ -91,13 +91,18 @@ $form-border-color: #58595B;
     top: 0px;
     right: 5px;
     padding: 10px;
+    transition: color 0.3s ease-out;
+
+    &:hover {
+      color: darken($text-grey, 10%);
+    }
   }
 }
 
 html.form-active {
   overflow: hidden;
 
-  .wrap-header, .content-wrapper {
+  .wrap-header, .content-wrapper, .wrap-footer {
     transition: filter 0.4s;
     filter: blur(5px);
   }

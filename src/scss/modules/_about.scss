@@ -70,14 +70,16 @@ $about-font-color: #747476;
     width: 100%;
 
     .title {
-      font-size: em(13);
+      font-size: em(12);
       text-transform: uppercase;
       color: $white;
       font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 3px;
     }
 
     .name {
-      font-size: em(16);
+      font-size: em(17);
       text-transform: uppercase;
       color: $white;
       margin-bottom: 0;
