@@ -47,6 +47,10 @@ $graphic-ending-background-color: #FDF6C5;
       font-size: em(20);
       letter-spacing: 0.1em;
       font-weight: normal;
+
+      @include breakpoint(tablet) {
+        display: none;
+      }
     }
 
     &.lifestyle {

@@ -7,10 +7,6 @@ import Graphic from './components/graphic';
 import ContactForm from './components/contact-form';
 import Loader from './components/loader';
 
-let $$ = {
-  desktopPlayer: $('#videojs-player-desktop')
-}
-
 class App {
   constructor() {
     let loader = new Loader();
@@ -19,10 +15,7 @@ class App {
   ready() {
     let menu = new Menu();
     let stickyHeader = new StickyHeader();
-    let videoPlayer = new VideoPlayer($$.desktopPlayer[0], {
-      autoplay: true,
-      desktop: true
-    });
+    let videoPlayer = new VideoPlayer();
     let graphic = new Graphic();
     let contactForm = new ContactForm();
 

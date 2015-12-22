@@ -17,11 +17,6 @@ $benefits-copy-color: #939598;
     @include divider();
   }
 
-  &.slid .benefit {
-    opacity: 0.5;
-    transform: scale(0.97);
-  }
-
   .benefit {
     text-align: center;
     cursor: pointer;

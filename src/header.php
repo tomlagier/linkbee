@@ -9,8 +9,11 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <link rel="icon" type="image/png" href="<?php echo linkbee_uri(); ?>assets/images/ui/favicon.png">
 <?php wp_head(); ?>
+<script src="https://use.typekit.net/jkb7eda.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
 <body <?php body_class(); ?>>
+  <div class="loader"></div>
   <div id="page" class="hfeed site">
     <div id="wrap-header" class="wrap-header">
       <header id="masthead" class="site-header module">

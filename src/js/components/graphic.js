@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import _ from 'lodash';
-import videojs from 'video.js';
+import mobileDetect from './is-mobile';
 
 let $$ = {
   graphicWrapper: $('.graphic-wrapper'),
@@ -9,16 +9,18 @@ let $$ = {
   benefits: $('.benefits'),
   window: $(window),
   adminBar: $('.admin-bar'),
+  skipLink: $('.skip-link'),
   skipLinkTrigger: $('.skip-link .button'),
   header: $('.wrap-header'),
+  html: $('html')
 }
 
 const PLAYER_RATIO = 1.7777;
 
 export default class Graphic {
   constructor() {
-    $$.videoPlayer = $('#videojs-player-desktop');
-    $$.videoPlayerWrapper = $('.video-wrapper.desktop-only');
+    $$.videoPlayer = $('#videojs-player');
+    $$.videoPlayerWrapper = $('.video-wrapper');
     this.setupGraphic();
   }
 
@@ -28,19 +30,43 @@ export default class Graphic {
   }
 
   bindEvents() {
-    $(window).on('resize orientationchange', () => {
+    $$.window.on('resize orientationchange', () => {
       let containerHeight = this.getContainerHeight();
       this.sizeGraphic(containerHeight);
       this.sizeVideo(containerHeight);
     });
     $$.benefitTrigger.on('click', evt => {
       this.activateBenefit(evt);
-      this.slideBenefits();
+      if (mobileDetect.isDesktop()) this.slideBenefits();
     });
 
-    $$.skipLinkTrigger.on('click', this.slideBenefits.bind(this));
+    $$.skipLinkTrigger.on('click', () => {
+      if (mobileDetect.isDesktop()) {
+        this.slideBenefits.bind(this)
+      } else {
+        $$.skipLink.addClass('hidden');
+      }
+    });
 
     $$.benefit.on('click', this.activateBenefit.bind(this));
+
+    if (mobileDetect.isDevice()) {
+      this.scrollThreshold = 0;
+      this.delta = 0;
+      $$.window.on('scroll mousewheel', this.handleMobileScroll.bind(this));
+    }
+  }
+
+  handleMobileScroll(evt) {
+    // --- Scrolling up ---
+    if (evt.originalEvent.detail < 0 || evt.originalEvent.wheelDelta > 0) {
+      this.delta--;
+    } else {
+      this.delta++;
+    }
+
+    // Prevent page from scrolling
+    return false;
   }
 
   activateBenefit(evt) {
@@ -76,11 +102,11 @@ export default class Graphic {
     if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
       $$.graphicWrapper.css({
         height: '100%',
-        width: containerHeight * PLAYER_RATIO
+        width: parseInt(containerHeight * PLAYER_RATIO - 1, 10)
       });
     } else {
       $$.graphicWrapper.css({
-        height: $$.window.width() / PLAYER_RATIO,
+        height: parseInt($$.window.width() / PLAYER_RATIO - 1, 10),
         width: '100%'
       });
     }
@@ -93,11 +119,11 @@ export default class Graphic {
     if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
       $$.videoPlayer.css({
         height: '100%',
-        width: containerHeight * PLAYER_RATIO
+        width: parseInt(containerHeight * PLAYER_RATIO, 10)
       });
     } else {
       $$.videoPlayer.css({
-        height: $$.window.width() / PLAYER_RATIO,
+        height: parseInt($$.window.width() / PLAYER_RATIO, 10),
         width: '100%'
       });
     }

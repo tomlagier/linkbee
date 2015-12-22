@@ -1,21 +1,24 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import videojs from 'video.js';
+import mobileDetect from './is-mobile';
 
 let defaults = {
   responsive: true,
   controls: true,
-  autoplay: false
+  autoplay: false,
+  callbacks: []
 }
 
 let $$ = {
   adminBar: $('.admin-bar'),
   header: $('.wrap-header'),
-  videoWrapperDesktop: $('.video-wrapper.desktop-only'),
-  videoPlayerDesktop: $('#videojs-player-desktop'),
+  videoWrapper: $('.video-wrapper'),
+  videoPlayer: $('#videojs-player'),
   interactiveGraphic: $('.interactive-graphic'),
   skipLink: $('.skip-link'),
   skipLinkTrigger: $('.skip-link .button'),
+  mobilePoster: $('.mobile-poster').not('.skip-link .button'),
   window: $(window)
 }
 
@@ -23,40 +26,45 @@ const PLAYER_RATIO = 1.777;
 
 export default class VideoPlayer {
   constructor(el, options) {
-
-    this.el = el, this.$el = $(el), this.$parent = $(el).parent();
-
-    _.defaults(options, defaults);
+    this.options = options || {};
+    _.defaults(this.options, defaults);
 
     //Queue up callbacks
-    const callbacks = [];
-    if (options.callback) callbacks.push(options.callback.bind(this));
-    if (options.autoplay) callbacks.push( () => this.player.play() )
+    this.setupPlayer();
 
-    if (options.desktop) this.setupDesktop();
-    if (options.mobile) this.setupMobile();
+    $$.skipLinkTrigger.on('click', this.skipVideo.bind(this));
+    $$.mobilePoster.on('click', () => {
+      this.hidePoster();
+      this.player.play();
+    });
+  }
 
-    this.player = videojs(el, options,
-      //Execute all callbacks
-      () => {
-        $$.videoPlayerDesktop = $('#videojs-player-desktop');
-        this.moveSkipLink();
-        callbacks.forEach( callback => callback());
-
+  setupPlayer() {
+    if (mobileDetect.isDesktop()) {
+      this.options.callbacks.push(() => {
         setTimeout(this.toggleBackground.bind(this), 6000);
+        this.moveSkipLink();
+        this.player.play();
       });
 
-    $$.skipLinkTrigger.on('click', this.skipVideo.bind(this))
+      this.setupDesktop();
+    } else {
+      this.options.autoplay = false;
+      this.setupDesktop();
+    }
+
+    this.player = videojs($$.videoPlayer[0], this.options,
+    //Execute all callbacks
+    () => {
+      $$.videoPlayer = $('#videojs-player');
+      this.options.callbacks.forEach(callback => callback());
+    });
   }
 
   //Set container size, set video to fill container
   //Set video to fill container
   setupDesktop() {
     this.sizeDesktop();
-
-    // $$.window.on('resize orientationchange', () => {
-    //   this.sizeDesktop();
-    // })
   }
 
   moveSkipLink() {
@@ -68,13 +76,19 @@ export default class VideoPlayer {
   }
 
   skipVideo() {
+    this.hidePoster();
     this.toggleBackground();
     this.player.currentTime(this.player.duration());
   }
 
+  hidePoster() {
+    $$.mobilePoster.addClass('hidden');
+    setTimeout(this.toggleBackground.bind(this), 6000);
+  }
+
   sizeDesktop() {
     let containerHeight = this.getContainerHeight()
-    $$.videoWrapperDesktop.height(containerHeight);
+    $$.videoWrapper.height(containerHeight);
     this.sizePlayerDesktop(containerHeight);
   }
 
@@ -90,13 +104,13 @@ export default class VideoPlayer {
 
   sizePlayerDesktop(containerHeight) {
     if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
-      $$.videoPlayerDesktop.css({
+      $$.videoPlayer.css({
         height: '100%',
-        width: containerHeight * PLAYER_RATIO
+        width: parseInt(containerHeight * PLAYER_RATIO + 2, 10)
       });
     } else {
-      $$.videoPlayerDesktop.css({
-        height: $$.window.width() / PLAYER_RATIO,
+      $$.videoPlayer.css({
+        height: parseInt($$.window.width() / PLAYER_RATIO + 2, 10),
         width: '100%'
       });
     }

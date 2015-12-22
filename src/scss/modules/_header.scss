@@ -12,7 +12,7 @@ $hamburger-color: #808285;
   width: 100%;
   height: auto;
   top: 0;
-  z-index: 10;
+  z-index: 220;
 
   .admin-bar & {
     top: 32px;
@@ -22,15 +22,20 @@ $hamburger-color: #808285;
 .site-title {
   text-align: center;
   margin: 0;
+
+  @include breakpoint(mobile) {
+    text-align: left;
+  }
 }
 
 .site-logo {
   max-width: 250px;
-  transition: max-width 0.2s ease-out;
 
-  // .is-sticky & {
-  //   max-width: 225px;
-  // }
+  @include breakpoint(mobile) {
+    top: 7px;
+    position: relative;
+    max-width: 200px;
+  }
 }
 
 .sticky-wrapper {
@@ -44,6 +49,10 @@ $hamburger-color: #808285;
   outline: none;
   @include transform-center('vertical');
   right: 15px;
+
+  @include breakpoint(mobile) {
+    right: 5px;
+  }
 
   svg {
     width: 40px;

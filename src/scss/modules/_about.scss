@@ -75,7 +75,8 @@ $about-font-color: #747476;
       color: $white;
       font-weight: bold;
       margin-top: 0;
-      margin-bottom: 3px;
+      margin-bottom: 0;
+      @include employee-heading-font();
     }
 
     .name {
@@ -85,6 +86,7 @@ $about-font-color: #747476;
       margin-bottom: 0;
       font-weight: bold;
       line-height: 1.2em;
+      @include employee-heading-font();
     }
 
     .blurb {
