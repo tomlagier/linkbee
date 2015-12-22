@@ -50,23 +50,6 @@ export default class Graphic {
 
     $$.benefit.on('click', this.activateBenefit.bind(this));
 
-    if (mobileDetect.isDevice()) {
-      this.scrollThreshold = 0;
-      this.delta = 0;
-      $$.window.on('scroll mousewheel', this.handleMobileScroll.bind(this));
-    }
-  }
-
-  handleMobileScroll(evt) {
-    // --- Scrolling up ---
-    if (evt.originalEvent.detail < 0 || evt.originalEvent.wheelDelta > 0) {
-      this.delta--;
-    } else {
-      this.delta++;
-    }
-
-    // Prevent page from scrolling
-    return false;
   }
 
   activateBenefit(evt) {
