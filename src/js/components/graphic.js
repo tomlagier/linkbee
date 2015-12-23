@@ -17,6 +17,7 @@ let $$ = {
 }
 
 const PLAYER_RATIO = 1.7777;
+const MOBILE_GRAPHIC_RATIO = 0.868;
 
 export default class Graphic {
   constructor() {
@@ -86,14 +87,16 @@ export default class Graphic {
     let graphicHeight = mobileDetect.isDevice() ? $$.window.height() : containerHeight;
     $$.graphicOuter.height(graphicHeight);
 
-    if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
+    let ratio = mobileDetect.isDevice() ? MOBILE_GRAPHIC_RATIO : PLAYER_RATIO;
+
+    if (($$.window.width() / containerHeight) >= MOBILE_GRAPHIC_RATIO) {
       $$.graphicWrapper.css({
         height: '100%',
-        width: parseInt(containerHeight * PLAYER_RATIO - 1, 10)
+        width: parseInt(containerHeight * MOBILE_GRAPHIC_RATIO - 1, 10)
       });
     } else {
       $$.graphicWrapper.css({
-        height: parseInt($$.window.width() / PLAYER_RATIO - 1, 10),
+        height: parseInt($$.window.width() / MOBILE_GRAPHIC_RATIO - 1, 10),
         width: '100%'
       });
     }

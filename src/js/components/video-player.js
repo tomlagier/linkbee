@@ -83,7 +83,9 @@ export default class VideoPlayer {
   skipVideo() {
     this.hidePoster();
     this.toggleBackground();
-    this.player.currentTime(this.player.duration());
+    this.player.pause();
+    $$.videoPlayer.addClass('stopped');
+    // this.player.currentTime(this.player.duration());
 
     if (mobileDetect.isDevice()) {
       this.hideVideoSection();
@@ -94,6 +96,9 @@ export default class VideoPlayer {
     this.isHidden = true;
     $$.videoWrapper.addClass('is-hidden')
     $$.videoWrapper.height(0);
+    $$.htmlBody.animate({
+      scrollTop: $$.header.height()
+    })
   }
 
   hidePoster() {

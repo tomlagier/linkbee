@@ -44,6 +44,7 @@ $poster-background-color: #FBF6C1;
 .video-js {
   @include transform-center();
   z-index: 2;
+  opacity: 1;
   transition: opacity 0.8s ease-out, z-index 0.9s 0s ease-out, background 0.4s linear;
 
   video {
@@ -65,7 +66,7 @@ $poster-background-color: #FBF6C1;
     opacity: 1;
   }
 
-  &.vjs-ended {
+  &.vjs-ended, &.stopped {
     opacity: 0;
     z-index: 1;
   }

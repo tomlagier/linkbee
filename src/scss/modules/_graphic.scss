@@ -30,6 +30,10 @@
     @include transform-center();
     top: 58%;
     width: 19.75%;
+
+    @include breakpoint(tablet) {
+      width: 50%;
+    }
   }
 
   .icon-wrapper {
@@ -37,6 +41,10 @@
     position: absolute;
     transform: translate(-50%, -50%);
     cursor: pointer;
+
+    @include breakpoint(tablet) {
+      width: 16%;
+    }
 
     .icon-text {
       @include transform-center('vertical');
@@ -59,6 +67,10 @@
       top: 15%;
       left: 50%;
 
+      @include breakpoint(tablet) {
+        top: 11.5%;
+      }
+
       .icon-text {
         padding-left: 10%;
         left: 100%;
@@ -68,7 +80,13 @@
     &.security {
       width: 6.8%;
       top: 29.2%;
-      right: 26.1%;
+      right: 0.8%;
+
+      @include breakpoint(tablet) {
+        width: 12%;
+        top: 27.4%;
+        right: 1.5%;
+      }
 
       .icon-text {
         top: 55%;
@@ -82,6 +100,12 @@
       right: 25%;
       width: 10%;
 
+      @include breakpoint(tablet) {
+        bottom: 23%;
+        right: -3%;
+        width: 19%;
+      }
+
       .icon-text {
         padding-left: 5%;
         left: 100%;
@@ -93,6 +117,12 @@
       left: 34.5%;
       width: 8%;
 
+      @include breakpoint(tablet) {
+        bottom: 22.1%;
+        left: 16%;
+        width: 15%;
+      }
+
       .icon-text {
         padding-right: 10%;
         right: 100%;
@@ -102,6 +132,11 @@
     &.heart {
       top: 31%;
       left: 33.5%;
+
+      @include breakpoint(tablet) {
+        top: 28%;
+        left: 16.5%;
+      }
 
       .icon-text {
         padding-right: 10%;
