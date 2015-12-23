@@ -133,3 +133,18 @@ Breakpoint Usage:
     background-position: center center;
   }
 }
+
+@mixin mobile-divider() {
+  &:after {
+    content: '';
+    @include transform-center('horizontal');
+    width: 80%;
+    margin: 0 auto;
+    height: 4px;
+    bottom: -2px;
+    background-image: url('#{$imagePath}/ui/mobile-divider.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+}

@@ -1,5 +1,8 @@
 <div class="module benefits">
   <div class="module-inner column-wrapper">
+    <div class="mobile-only mobile-heading">
+      <h2>Benefits</h2>
+    </div>
     <div class="col-5 benefit energy" data-benefit="energy">
       <div class="icon-wrapper">
         <img src="<?php echo linkbee_uri() ?>assets/images/benefits/energy-icon.png">

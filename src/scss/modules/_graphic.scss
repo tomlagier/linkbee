@@ -8,6 +8,14 @@
   background-color: $graphic-starting-background-color;
   transition: background 0.4s linear;
 
+  @include breakpoint(tablet) {
+    @include mobile-divider();
+
+    &:after {
+      bottom: 3%;
+    }
+  }
+
   &.switch-background {
     background-color: $graphic-ending-background-color !important;
   }
@@ -15,6 +23,8 @@
   @include breakpoint(tablet) {
     background-color: $graphic-ending-background-color;
     position: relative;
+    background-image: linear-gradient(to bottom, $graphic-ending-background-color, $graphic-ending-background-color 90%, $white)
+
   }
 
   .graphic-wrapper {

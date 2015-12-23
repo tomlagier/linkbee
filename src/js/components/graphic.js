@@ -13,7 +13,8 @@ let $$ = {
   skipLink: $('.skip-link'),
   skipLinkTrigger: $('.skip-link .button'),
   header: $('.wrap-header'),
-  html: $('html')
+  html: $('html'),
+  htmlBody: $('html,body')
 }
 
 const PLAYER_RATIO = 1.7777;
@@ -59,16 +60,25 @@ export default class Graphic {
     const target = $target.attr('data-benefit');
     $$.benefit.removeClass('active');
     $$.benefitTrigger.removeClass('active');
+    $$.benefits.addClass('is-active');
 
     $(`[data-benefit=${target}]`).addClass('active');
+
+    if (mobileDetect.isDevice()) {
+      $$.htmlBody.animate({
+        scrollTop: $(`.benefit[data-benefit=${target}]`).offset().top - 100
+      });
+    }
   }
 
   slideBenefits() {
-    this.benefitsSlid = true;
-    $$.benefits.addClass('slid');
-    let containerHeight = this.getContainerHeight();
-    this.sizeGraphic(containerHeight);
-    this.sizeVideo(containerHeight);
+    if (mobileDetect.isDesktop()) {
+      this.benefitsSlid = true;
+      $$.benefits.addClass('slid');
+      let containerHeight = this.getContainerHeight();
+      this.sizeGraphic(containerHeight);
+      this.sizeVideo(containerHeight);
+    }
   }
 
   getContainerHeight() {

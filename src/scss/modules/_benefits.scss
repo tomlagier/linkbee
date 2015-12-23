@@ -1,4 +1,5 @@
 $benefits-copy-color: #939598;
+$benefits-divider-color: #FBF6C1;
 
 .benefits {
   transition: margin 0.5s ease-out;
@@ -15,6 +16,15 @@ $benefits-copy-color: #939598;
     }
 
     @include divider();
+
+    @include breakpoint(tablet) {
+      @include mobile-divider();
+    }
+  }
+
+  &.is-active .benefit {
+    opacity: 0.5;
+    transform: scale(0.97);
   }
 
   .benefit {
@@ -25,6 +35,42 @@ $benefits-copy-color: #939598;
     &:hover, &.active {
       opacity: 1 !important;
       transform: scale(1.12) !important;
+    }
+
+    @include breakpoint(tablet) {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $benefits-divider-color;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      .text-wrapper {
+        transform: translateY(15px);
+      }
+
+      &:nth-child(odd) {
+        .icon-wrapper {
+          float: left;
+          margin-right: 30px;
+        }
+
+        .text-wrapper {
+          text-align: left;
+        }
+      }
+
+      &:nth-child(even) {
+        .icon-wrapper {
+          float: right;
+          margin-left: 30px;
+        }
+
+        .text-wrapper {
+          text-align: right;
+        }
+      }
     }
   }
 
@@ -61,5 +107,18 @@ $benefits-copy-color: #939598;
 
   .living h3 {
     color: $living-color;
+  }
+
+  .mobile-heading {
+    text-align: center;
+
+    h2 {
+      font-size: 28px;
+      color: $health-color;
+      text-transform: uppercase;
+      font-weight: normal;
+      margin-top: -20px;
+      margin-bottom: 0;
+    }
   }
 }

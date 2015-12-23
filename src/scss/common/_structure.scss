@@ -6,6 +6,10 @@ html {
   overflow-x: hidden;
 }
 
+body {
+  overflow: hidden;
+}
+
 body.admin-bar {
   @include breakpoint(782px) {
     margin-top: -18px;
