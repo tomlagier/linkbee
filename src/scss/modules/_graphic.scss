@@ -1,6 +1,3 @@
-$graphic-starting-background-color: #240302;
-$graphic-ending-background-color: #FDF6C5;
-
 .interactive-graphic {
   position: absolute;
   top: 0;
@@ -11,12 +8,13 @@ $graphic-ending-background-color: #FDF6C5;
   background-color: $graphic-starting-background-color;
   transition: background 0.4s ease-out;
 
-  @include breakpoint(tablet) {
-    transition: none;
-  }
-
   &.switch-background {
     background-color: $graphic-ending-background-color !important;
+  }
+
+  @include breakpoint(tablet) {
+    background-color: $graphic-ending-background-color;
+    position: relative;
   }
 
   .graphic-wrapper {

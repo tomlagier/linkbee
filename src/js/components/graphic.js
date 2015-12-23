@@ -3,6 +3,7 @@ import _ from 'lodash';
 import mobileDetect from './is-mobile';
 
 let $$ = {
+  graphicOuter: $('.interactive-graphic'),
   graphicWrapper: $('.graphic-wrapper'),
   benefitTrigger: $('.interactive-graphic .icon-wrapper'),
   benefit: $('.benefit'),
@@ -82,6 +83,9 @@ export default class Graphic {
   //Set video to fill container
   sizeGraphic(containerHeight) {
 
+    let graphicHeight = mobileDetect.isDevice() ? $$.window.height() : containerHeight;
+    $$.graphicOuter.height(graphicHeight);
+
     if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
       $$.graphicWrapper.css({
         height: '100%',
@@ -96,19 +100,20 @@ export default class Graphic {
   }
 
   sizeVideo(containerHeight) {
+    if (!$$.videoWrapper.hasClass('is-hidden')) {
+      $$.videoPlayerWrapper.height(containerHeight);
 
-    $$.videoPlayerWrapper.height(containerHeight);
-
-    if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
-      $$.videoPlayer.css({
-        height: '100%',
-        width: parseInt(containerHeight * PLAYER_RATIO, 10)
-      });
-    } else {
-      $$.videoPlayer.css({
-        height: parseInt($$.window.width() / PLAYER_RATIO, 10),
-        width: '100%'
-      });
+      if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
+        $$.videoPlayer.css({
+          height: '100%',
+          width: parseInt(containerHeight * PLAYER_RATIO, 10)
+        });
+      } else {
+        $$.videoPlayer.css({
+          height: parseInt($$.window.width() / PLAYER_RATIO, 10),
+          width: '100%'
+        });
+      }
     }
   }
 }

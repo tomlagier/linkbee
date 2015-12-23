@@ -19,7 +19,8 @@ let $$ = {
   skipLink: $('.skip-link'),
   skipLinkTrigger: $('.skip-link .button'),
   mobilePoster: $('.mobile-poster').not('.skip-link .button'),
-  window: $(window)
+  window: $(window),
+  htmlBody: $('html,body')
 }
 
 const PLAYER_RATIO = 1.777;
@@ -50,6 +51,9 @@ export default class VideoPlayer {
       this.setupDesktop();
     } else {
       this.options.autoplay = false;
+      this.options.callbacks.push(() => {
+        this.player.on('ended', this.hideVideoSection.bind(this));
+      });
       this.setupDesktop();
     }
 
@@ -72,6 +76,7 @@ export default class VideoPlayer {
   }
 
   toggleBackground() {
+    $$.videoWrapper.addClass('switch-background');
     $$.interactiveGraphic.addClass('switch-background');
   }
 
@@ -79,6 +84,16 @@ export default class VideoPlayer {
     this.hidePoster();
     this.toggleBackground();
     this.player.currentTime(this.player.duration());
+
+    if (mobileDetect.isDevice()) {
+      this.hideVideoSection();
+    }
+  }
+
+  hideVideoSection() {
+    this.isHidden = true;
+    $$.videoWrapper.addClass('is-hidden')
+    $$.videoWrapper.height(0);
   }
 
   hidePoster() {
@@ -103,16 +118,18 @@ export default class VideoPlayer {
   }
 
   sizePlayerDesktop(containerHeight) {
-    if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
-      $$.videoPlayer.css({
-        height: '100%',
-        width: parseInt(containerHeight * PLAYER_RATIO + 2, 10)
-      });
-    } else {
-      $$.videoPlayer.css({
-        height: parseInt($$.window.width() / PLAYER_RATIO + 2, 10),
-        width: '100%'
-      });
+    if (!this.isHidden) {
+      if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
+        $$.videoPlayer.css({
+          height: '100%',
+          width: parseInt(containerHeight * PLAYER_RATIO + 2, 10)
+        });
+      } else {
+        $$.videoPlayer.css({
+          height: parseInt($$.window.width() / PLAYER_RATIO + 2, 10),
+          width: '100%'
+        });
+      }
     }
   }
 }

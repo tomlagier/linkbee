@@ -8,7 +8,12 @@ $poster-background-color: #FBF6C1;
   overflow: hidden;
   display: block;
   // visibility: hidden;
-  transition: height 0.3s ease-out;
+  transition: height 0.3s ease-out, background 0.4s ease-out;
+  background-color: $graphic-starting-background-color;
+
+  &.switch-background {
+    background-color: $graphic-ending-background-color !important;
+  }
 
   .mobile-poster {
     position: absolute;
@@ -48,8 +53,8 @@ $poster-background-color: #FBF6C1;
     width: 80%;
     bottom: 10px;
     margin-left: 10%;
-    opacity: 0;
     transition: opacity 0.3s ease-out;
+    opacity: 0;
   }
 
   &:hover .vjs-control-bar:not(.vjs-user-inactive), &:hover:not(.vjs-user-inactive) .skip-link{
@@ -82,7 +87,7 @@ $poster-background-color: #FBF6C1;
   padding: 20px;
   font-size: 18px;
 
-  &.hidden {
+  &.hidden, .vjs-ended + & {
     opacity: 0;
     z-index: -1;
   }
