@@ -34,6 +34,10 @@
     background-repeat: no-repeat;
     background-position: center center;
     transition: width 0.3s ease-out, height 0.3s ease-out;
+
+    @include breakpoint(tablet) {
+      background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(farthest-side at 50% 50%, #FFFEF8 0%, #FFFEF8 20%, #FDF6C2 80%, transparent 100%);
+    }
   }
 
   .lightbulb {
