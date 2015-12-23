@@ -18,7 +18,9 @@ $benefits-divider-color: #FBF6C1;
     @include divider();
 
     @include breakpoint(tablet) {
-      @include mobile-divider();
+      &:after {
+        display: none;
+      }
     }
   }
 

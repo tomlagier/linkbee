@@ -66,10 +66,23 @@ $advisors-copy-color: #343434;
       img {
         width: 100%;
       }
+
+      @include breakpoint(tablet) {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+      }
     }
 
     .text-wrapper {
       padding-right: 25px;
+
+      @include breakpoint(tablet) {
+        display: block;
+        padding-right: 0;
+        text-align: center;
+        margin-top: 20px;
+      }
     }
   }
 
@@ -81,6 +94,13 @@ $advisors-copy-color: #343434;
       padding-left: 40px;
       padding-top: 20px;
     }
+
+    @include breakpoint(tablet) {
+      padding-right: 0;
+      position: relative;
+      padding-bottom: 20px;
+      @include mobile-divider();
+    }
   }
 
   .pegasus {
@@ -89,6 +109,10 @@ $advisors-copy-color: #343434;
     .icon-wrapper {
       padding-right: 20px;
       padding-top: 30px;
+    }
+
+    @include breakpoint(tablet) {
+      padding-left: 0;
     }
   }
 }

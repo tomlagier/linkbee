@@ -3,9 +3,19 @@ $about-font-color: #747476;
 .about {
   @include divider();
 
+  @include breakpoint(tablet) {
+    &:after {
+      display: none;
+    }
+  }
+
   .module-inner {
     padding-top: 45px;
     padding-bottom: 45px;
+
+    @include breakpoint(tablet) {
+      padding: 0;
+    }
   }
 
   .upper-text {
@@ -13,17 +23,36 @@ $about-font-color: #747476;
     max-width: 1000px;
     margin: 0 auto;
 
+    @include breakpoint(tablet) {
+      background-image: url('#{$imagePath}/backgrounds/about-title-logo.png'), url('#{$imagePath}/backgrounds/about-title-background.jpg');
+      background-position:  90% 10%, center center;
+      background-size: auto, cover;
+      background-repeat: no-repeat, no-repeat;
+      padding: 20px;
+    }
+
     h2 {
       color: $health-color;
       text-transform: uppercase;
       font-size: em(40);
       margin-top: 0;
       margin-bottom: 30px;
+
+      @include breakpoint(tablet) {
+        font-size: em(28);
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
     }
 
     p {
       font-size: em(18);
       color: $about-font-color;
+
+      @include breakpoint(tablet) {
+        font-size: em(16);
+        line-height: 1.2em;
+      }
     }
   }
 }
@@ -36,8 +65,23 @@ $about-font-color: #747476;
   position: relative;
   margin-right: 5px;
 
+  @include breakpoint(tablet) {
+    width: 100%;
+    height: auto;
+  }
+
+  &:not(.has-text) {
+    @include breakpoint(tablet) {
+      display: none;
+    }
+  }
+
   &.has-text{
     cursor: pointer;
+
+    @include breakpoint(tablet) {
+      display: block;
+    }
   }
 
   &.has-text:hover {
@@ -53,6 +97,13 @@ $about-font-color: #747476;
   .image-hexagon {
     width: 200px;
     height: 235px;
+
+    @include breakpoint(tablet) {
+      width: 117px;
+      height: 138px;
+      float: left;
+      @include clear();
+    }
   }
 
   .employee-image {
@@ -68,6 +119,15 @@ $about-font-color: #747476;
     max-width: 96%;
     max-height: 51%;
     width: 100%;
+
+    @include breakpoint(tablet) {
+      @include clear-transform();
+      opacity: 1;
+      width: auto;
+      height: auto;
+      max-width: none;
+      max-height: none;
+    }
 
     .title {
       font-size: em(12);
@@ -109,6 +169,15 @@ $about-font-color: #747476;
   text-align: center;
   position: relative;
 
+  @include breakpoint(tablet) {
+    padding: 20px;
+    background-image: url('#{$imagePath}/backgrounds/mobile-bios-gradient.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 0;
+  }
+
   .about-lb-wrapper {
     position: absolute;
     top: 89px;
@@ -119,6 +188,10 @@ $about-font-color: #747476;
     img {
       @include transform-center();
     }
+
+    @include breakpoint(tablet) {
+      display: none;
+    }
   }
 }
 
@@ -127,5 +200,82 @@ $about-font-color: #747476;
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.about-hexagon-mobile-wrapper {
+  height: 180px;
+
+  margin: -25px 0;
+
+  &:nth-child(2) {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:nth-child(odd) {
+    .mobile-image-wrapper {
+      float: right;
+    }
+
+    .mobile-text-outer {
+      text-align: right;
+    }
+  }
+
+  &:nth-child(even) {
+    .mobile-image-wrapper {
+      float: left;
+    }
+
+    .mobile-text-outer {
+      text-align: left;
+      padding-left: 10px;
+    }
+  }
+
+  .mobile-image-wrapper {
+    width: 117px;
+    height: 138px;
+    margin-top: 21px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .mobile-text-outer {
+    position: relative;
+    font-size: $base-font-size;
+    height: 100%;
+    display: inline-block;
+    width: calc(100% - 130px);
+  }
+
+  .mobile-text-inner {
+    @include transform-center('vertical');
+    width: calc(100% - 10px);
+
+    .name {
+      font-size: em(18);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .title {
+      line-height: 1.2em;
+      font-weight: normal;
+      font-size: em(15);
+    }
+
+    .blurb {
+      line-height: 1.2em;
+      font-size: em(12);
+    }
   }
 }

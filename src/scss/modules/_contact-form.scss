@@ -8,6 +8,10 @@ $form-border-color: #58595B;
     color: $linkbee-orange;
     text-align: center;
     font-size: em(20);
+
+    @include breakpoint(mobile) {
+      font-size: em(16);
+    }
   }
 
   .button {
@@ -43,7 +47,7 @@ $form-border-color: #58595B;
   transition: opacity 0.4s ease-out, z-index 0.4s 0s;
 
   &.active {
-    z-index: 200;
+    z-index: 250;
     opacity: 1;
     transition: opacity 0.4s ease-out, z-index 0s 0s;
   }
@@ -61,6 +65,10 @@ $form-border-color: #58595B;
   background-position: center center;
   border: 1px solid $form-border-color;
 
+  @include breakpoint(tablet) {
+    padding: 25px;
+  }
+
   .upper-text {
     position: relative;
     text-align: center;
@@ -74,6 +82,10 @@ $form-border-color: #58595B;
       font-size: em(48);
       text-transform: uppercase;
       margin-bottom: 10px;
+
+      @include breakpoint(tablet) {
+        font-size: em(28);
+      }
     }
 
     p {
