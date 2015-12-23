@@ -36,7 +36,7 @@
     transition: width 0.3s ease-out, height 0.3s ease-out;
 
     @include breakpoint(tablet) {
-      background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(farthest-side at 50% 50%, #FFFEF8 0%, #FFFEF8 20%, #FDF6C2 80%, transparent 100%);
+      background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(farthest-side at 50% 50%, #FFFEF8 0%, #FFFEF8 20%, #FDF6C2 80%, rgba(255,255,255,0) 100%);
     }
   }
 
@@ -94,12 +94,12 @@
     &.security {
       width: 6.8%;
       top: 29.2%;
-      right: 0.8%;
+      right: 22%;
 
       @include breakpoint(tablet) {
         width: 12%;
         top: 27.4%;
-        right: 1.5%;
+        right: 0.8%;
       }
 
       .icon-text {

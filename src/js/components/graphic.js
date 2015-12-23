@@ -99,21 +99,23 @@ export default class Graphic {
 
     let ratio = mobileDetect.isDevice() ? MOBILE_GRAPHIC_RATIO : PLAYER_RATIO;
 
-    if (($$.window.width() / containerHeight) >= MOBILE_GRAPHIC_RATIO) {
+    console.log(ratio);
+
+    if (($$.window.width() / containerHeight) >= ratio) {
       $$.graphicWrapper.css({
         height: '100%',
-        width: parseInt(containerHeight * MOBILE_GRAPHIC_RATIO - 1, 10)
+        width: parseInt(containerHeight * ratio - 1, 10)
       });
     } else {
       $$.graphicWrapper.css({
-        height: parseInt($$.window.width() / MOBILE_GRAPHIC_RATIO - 1, 10),
+        height: parseInt($$.window.width() / ratio - 1, 10),
         width: '100%'
       });
     }
   }
 
   sizeVideo(containerHeight) {
-    if (!$$.videoWrapper.hasClass('is-hidden')) {
+    if (!$$.videoPlayerWrapper.hasClass('is-hidden')) {
       $$.videoPlayerWrapper.height(containerHeight);
 
       if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {

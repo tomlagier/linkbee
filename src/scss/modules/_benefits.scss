@@ -5,6 +5,10 @@ $benefits-divider-color: #FBF6C1;
   transition: margin 0.5s ease-out;
   background: $white;
 
+  .slid {
+    margin-top: 100%;
+  }
+
   .module-inner {
     max-width: 1200px;
     padding-top: 45px;
