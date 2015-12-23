@@ -8,11 +8,15 @@ $poster-background-color: #FBF6C1;
   overflow: hidden;
   display: block;
   // visibility: hidden;
-  transition: height 0.3s ease-out, background 0.4s ease-out;
+  transition: height 0.3s ease-out, background 0.4s linear;
   background-color: $graphic-starting-background-color;
 
   &.switch-background {
     background-color: $graphic-ending-background-color !important;
+
+    .video-js {
+      background-color: $graphic-ending-background-color !important;
+    }
   }
 
   .mobile-poster {
@@ -40,7 +44,7 @@ $poster-background-color: #FBF6C1;
 .video-js {
   @include transform-center();
   z-index: 2;
-  transition: opacity 0.8s ease-out, z-index 0.9s 0s ease-out;
+  transition: opacity 0.8s ease-out, z-index 0.9s 0s ease-out, background 0.4s linear;
 
   video {
     width: 100% !important;

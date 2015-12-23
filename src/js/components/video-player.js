@@ -43,7 +43,7 @@ export default class VideoPlayer {
   setupPlayer() {
     if (mobileDetect.isDesktop()) {
       this.options.callbacks.push(() => {
-        setTimeout(this.toggleBackground.bind(this), 6000);
+        setTimeout(this.toggleBackground.bind(this), 13500);
         this.moveSkipLink();
         this.player.play();
       });
@@ -98,7 +98,7 @@ export default class VideoPlayer {
 
   hidePoster() {
     $$.mobilePoster.addClass('hidden');
-    setTimeout(this.toggleBackground.bind(this), 6000);
+    setTimeout(this.toggleBackground.bind(this), 13500);
   }
 
   sizeDesktop() {
