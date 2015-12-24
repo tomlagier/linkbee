@@ -162,6 +162,15 @@ html.form-active {
     position: relative;
     margin: 15px 0;
 
+    input {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
     &:hover {
       background-color: darken($linkbee-orange, 10%);
 
@@ -203,5 +212,9 @@ html.form-active {
       @include transform-center('horizontal');
       bottom: -20px;
     }
+  }
+
+  .response {
+    margin-top: 25px;
   }
 }

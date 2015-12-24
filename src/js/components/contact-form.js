@@ -5,7 +5,9 @@ let $$ = {
   overlay: $('.contact-form-overlay'),
   wrapper: $('.contact-form-wrapper'),
   closeButton: $('.contact-form-wrapper .close'),
-  html: $('html')
+  html: $('html'),
+  submitButton: $('.submit-button'),
+  submitButtonInput: $('.submit-button input')
 };
 
 export default class ContactForm {
@@ -16,6 +18,11 @@ export default class ContactForm {
   setupEvents() {
     $$.formTrigger.on('click', this.openForm.bind(this));
     $$.closeButton.on('click', this.closeForm.bind(this));
+    $$.submitButton.on('click', evt => {
+      if (!$(evt.target).closest('input').length) {
+        $$.submitButtonInput.click();
+      }
+    });
   }
 
   openForm() {
