@@ -9,6 +9,10 @@ $menu-background-color: #E7E7E7;
   width: 250px;
   box-shadow: 3px 8px 3px 5px rgba(0,0,0,0.25), inset 0px 4px 3px -2px rgba(0,0,0,0.25);
 
+  @include breakpoint(mobile) {
+    width: 200px;
+  }
+
   &.active {
     transform: translateX(0);
   }

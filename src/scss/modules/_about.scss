@@ -180,8 +180,8 @@ $about-font-color: #747476;
 
   .about-lb-wrapper {
     position: absolute;
-    top: 89px;
-    right: -22px;
+    top: 183px;
+    right: -88px;
     width: 0;
     height: 0;
 
@@ -192,6 +192,16 @@ $about-font-color: #747476;
     @include breakpoint(tablet) {
       display: none;
     }
+  }
+
+  .row-1 {
+    position: relative;
+    left: -102px;
+  }
+
+  .row-3 {
+    position: relative;
+    left: 102px;
   }
 }
 

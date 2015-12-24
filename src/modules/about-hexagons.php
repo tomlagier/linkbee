@@ -11,7 +11,7 @@ function print_hexagons($employees) {
 
   $employee_count = 0;
   $hex_count = 0;
-  $row_ends = [3, 7, 10];
+  $row_ends = [4, 8];
   $row_count = 1;
   echo '<div class="hex-row row-1">';
   foreach($layout as $type) {
