@@ -99,8 +99,6 @@ export default class Graphic {
 
     let ratio = mobileDetect.isDevice() ? MOBILE_GRAPHIC_RATIO : PLAYER_RATIO;
 
-    console.log(ratio);
-
     if (($$.window.width() / containerHeight) >= ratio) {
       $$.graphicWrapper.css({
         height: '100%',

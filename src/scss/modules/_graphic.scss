@@ -6,7 +6,7 @@
   width: 100%;
   height: 100%;
   background-color: $graphic-starting-background-color;
-  transition: background 0.4s linear;
+  transition: background 0.4s linear, height 0.3s ease-out;
 
   @include breakpoint(tablet) {
     @include mobile-divider();
@@ -29,10 +29,10 @@
 
   .graphic-wrapper {
     @include transform-center();
-    background-image: url('#{$imagePath}/backgrounds/graphic-background-desktop.png'), radial-gradient(farthest-side at 50% 50%, #FFFEF8 0%, #FDF6C2 100%);
-    background-size: contain;
+    background-image: radial-gradient(circle at 50% 38%, rgba(255,254,248,1) 0%, rgba(255,254,248,1) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0) 100%), url('#{$imagePath}/backgrounds/graphic-background-desktop.png');
+    background-size: cover, cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top, center 62%;
     transition: width 0.3s ease-out, height 0.3s ease-out;
 
     @include breakpoint(tablet) {
@@ -42,8 +42,9 @@
 
   .lightbulb {
     @include transform-center();
-    top: 58%;
-    width: 19.75%;
+    left: 50.25%;
+    top: 49.8%;
+    width: 21.2%;
 
     @include breakpoint(tablet) {
       width: 50%;
@@ -51,7 +52,7 @@
   }
 
   .icon-wrapper {
-    width: 9%;
+    width: 6%;
     position: absolute;
     transform: translate(-50%, -50%);
     cursor: pointer;
@@ -78,7 +79,7 @@
     }
 
     &.lifestyle {
-      top: 15%;
+      top: 9.5%;
       left: 50%;
 
       @include breakpoint(tablet) {
@@ -92,9 +93,9 @@
     }
 
     &.security {
-      width: 6.8%;
+      width: 4.8%;
       top: 29.2%;
-      right: 22%;
+      right: 28.3%;
 
       @include breakpoint(tablet) {
         width: 12%;
@@ -110,9 +111,9 @@
     }
 
     &.living {
-      bottom: 22%;
-      right: 25%;
-      width: 10%;
+      bottom: 28%;
+      right: 29%;
+      width: 7.5%;
 
       @include breakpoint(tablet) {
         bottom: 23%;
@@ -127,9 +128,9 @@
     }
 
     &.energy {
-      bottom: 21%;
-      left: 34.5%;
-      width: 8%;
+      bottom: 27.6%;
+      left: 36.9%;
+      width: 5.9%;
 
       @include breakpoint(tablet) {
         bottom: 22.1%;

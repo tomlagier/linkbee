@@ -4,7 +4,6 @@
       <div class="close">X</div>
       <div class="upper-text">
         <h3>Contact Us</h3>
-        <p>Some content here</p>
       </div>
       <div class="contact-form">
           <input type="text" class="text" id="first-name" placeholder="First Name">
