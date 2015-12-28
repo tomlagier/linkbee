@@ -38,12 +38,18 @@ export default class VideoPlayer {
       this.hidePoster();
       this.player.play();
     });
+
+    this.player.on('timeupdate', () => {
+      let currentTime = this.player.currentTime();
+      if (currentTime > 13.4 && !this.backgroundToggled) {
+        this.toggleBackground();
+      }
+    });
   }
 
   setupPlayer() {
     if (mobileDetect.isDesktop()) {
       this.options.callbacks.push(() => {
-        setTimeout(this.toggleBackground.bind(this), 13500);
         this.moveSkipLink();
         this.player.play();
       });
@@ -76,8 +82,11 @@ export default class VideoPlayer {
   }
 
   toggleBackground() {
-    $$.videoWrapper.addClass('switch-background');
-    $$.interactiveGraphic.addClass('switch-background');
+    if(!this.backgroundToggled) {
+      $$.videoWrapper.addClass('switch-background');
+      $$.interactiveGraphic.addClass('switch-background');
+      this.backgroundToggled = true;
+    }
   }
 
   skipVideo() {
