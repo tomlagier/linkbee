@@ -78,6 +78,10 @@ $benefits-divider-color: #FBF6C1;
         }
       }
     }
+    @media screen and (max-width: 1100px) and (orientation: landscape) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
 
   h3 {

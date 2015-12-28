@@ -34,7 +34,7 @@ $hamburger-color: #808285;
   @include breakpoint(mobile) {
     top: 7px;
     position: relative;
-    max-width: 200px;
+    max-width: 140px;
   }
 }
 
@@ -52,6 +52,7 @@ $hamburger-color: #808285;
 
   @include breakpoint(mobile) {
     right: 5px;
+    top: 25px;
   }
 
   svg {

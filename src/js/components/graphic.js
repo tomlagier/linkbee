@@ -94,10 +94,12 @@ export default class Graphic {
   //Set video to fill container
   sizeGraphic(containerHeight) {
 
-    let graphicHeight = mobileDetect.isDevice() ? $$.window.height() : containerHeight;
-    $$.graphicOuter.height(graphicHeight);
+    // let graphicHeight = mobileDetect.isDevice() ? $$.window.height() : containerHeight;
+    $$.graphicOuter.height(containerHeight);
 
     let ratio = mobileDetect.isDevice() ? MOBILE_GRAPHIC_RATIO : PLAYER_RATIO;
+
+    console.log($$.window.width() / containerHeight);
 
     if (($$.window.width() / containerHeight) >= ratio) {
       $$.graphicWrapper.css({

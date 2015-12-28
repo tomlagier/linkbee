@@ -82,7 +82,7 @@ export default class VideoPlayer {
   }
 
   toggleBackground() {
-    if(!this.backgroundToggled) {
+    if (!this.backgroundToggled) {
       $$.videoWrapper.addClass('switch-background');
       $$.interactiveGraphic.addClass('switch-background');
       this.backgroundToggled = true;
