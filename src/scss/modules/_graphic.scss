@@ -86,6 +86,7 @@
     &.lifestyle {
       top: 9.5%;
       left: 50%;
+      height: 11%;
 
       @include breakpoint(tablet) {
         top: 11.5%;
@@ -101,6 +102,7 @@
       width: 4.8%;
       top: 29.2%;
       right: 28.3%;
+      height: 13%;
 
       @include breakpoint(tablet) {
         width: 12%;
@@ -119,6 +121,7 @@
       bottom: 28%;
       right: 29%;
       width: 7.5%;
+      height: 12%;
 
       @include breakpoint(tablet) {
         bottom: 23%;
@@ -136,6 +139,7 @@
       bottom: 27.6%;
       left: 36.9%;
       width: 5.9%;
+      height: 11.5%;
 
       @include breakpoint(tablet) {
         bottom: 22.1%;
@@ -152,6 +156,7 @@
     &.heart {
       top: 31%;
       left: 33.5%;
+      height: 11.4%;
 
       @include breakpoint(tablet) {
         top: 28%;

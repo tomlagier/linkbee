@@ -121,11 +121,11 @@ export default class Graphic {
       if (($$.window.width() / containerHeight) >= PLAYER_RATIO) {
         $$.videoPlayer.css({
           height: '100%',
-          width: parseInt(containerHeight * PLAYER_RATIO, 10)
+          width: parseInt(containerHeight * PLAYER_RATIO + 1, 10)
         });
       } else {
         $$.videoPlayer.css({
-          height: parseInt($$.window.width() / PLAYER_RATIO, 10),
+          height: parseInt($$.window.width() / PLAYER_RATIO + 1, 10),
           width: '100%'
         });
       }
