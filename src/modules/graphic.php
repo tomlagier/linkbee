@@ -11,7 +11,7 @@
     </div>
     <div class="icon-wrapper living" data-benefit="living">
       <?php require(linkbee_path() . 'modules/icons/living.php') ?>
-      <div class="icon-text">Independent</div>
+      <div class="icon-text">Independent Living</div>
     </div>
     <div class="icon-wrapper energy" data-benefit="energy">
       <?php require(linkbee_path() . 'modules/icons/energy.php') ?>

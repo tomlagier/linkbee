@@ -9,7 +9,7 @@
       </div>
       <div class="text-wrapper">
         <h3>Energy</h3>
-        <p>Save the smart way, lights use 90% less energy.</p>
+        <p>Save the smart way, lights that use 90% less energy.</p>
       </div>
     </div>
     <div class="col-5 benefit health" data-benefit="health">
@@ -44,8 +44,8 @@
         <img src="<?php echo linkbee_uri() ?>assets/images/benefits/living-icon.png">
       </div>
       <div class="text-wrapper">
-        <h3>Independent</h3>
-        <p>Empowers seniors through technology to stay independent as long as possible.</p>
+        <h3>Independent Living</h3>
+        <p>Technology that empowers seniors to live at home in a healthy, safe and independent environment.</p>
       </div>
     </div>
   </div>

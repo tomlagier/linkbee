@@ -31,7 +31,7 @@ function print_mobile_hexagon($employee, $count) {
   ?><div class="about-hexagon-mobile-wrapper">
     <div class="mobile-image-wrapper">
       <svg class="image-hexagon" viewBox="0 0 100 114.4">
-        <path fill="#<?php echo $color ?>" stroke="#<?php echo $color ?>" d="<?php echo linkbee_hexagon_path() ?>" stroke-width="3px" />
+        <path fill="#<?php echo $color ?>" stroke="#<?php echo $color ?>" d="<?php echo linkbee_hexagon_path() ?>" stroke-width="3px" ></path>
         <?php echo $svg_contents; ?>
       </svg>
     </div>
@@ -44,7 +44,7 @@ function print_mobile_hexagon($employee, $count) {
 <svg width="0" height="0" viewBox="0 0 100 100">
  <defs>
    <clipPath id="hexagonPath">
-     <path d="<?php echo linkbee_hexagon_path() ?>" />
+     <path d="<?php echo linkbee_hexagon_path() ?>" ></path>
    </clipPath>
  </defs>
 </svg>

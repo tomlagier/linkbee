@@ -45,6 +45,10 @@ export default class VideoPlayer {
         this.toggleBackground();
       }
     });
+
+    this.player.on('ended', () => {
+      $$.interactiveGraphic.addClass('rays');
+    });
   }
 
   setupPlayer() {
@@ -94,6 +98,7 @@ export default class VideoPlayer {
     this.toggleBackground();
     this.player.pause();
     $$.videoPlayer.addClass('stopped');
+    $$.interactiveGraphic.addClass('rays');
     // this.player.currentTime(this.player.duration());
 
     if (mobileDetect.isDevice()) {

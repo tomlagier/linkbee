@@ -4,6 +4,7 @@
       <div class="close">X</div>
       <div class="upper-text">
         <h3>Contact Us</h3>
+        <p>LinkBee is building a world-class team… We want to hear from you!</p>
       </div>
       <div class="contact-form">
         <form action="//linkbee.us12.list-manage.com/subscribe/post?u=f9bc84ac267529a3da6ea3102&amp;id=f803de4b7c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>

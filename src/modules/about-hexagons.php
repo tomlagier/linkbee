@@ -77,25 +77,22 @@ function print_hexagon($color, $svg_contents = false, $text_contents = false) {
   ?>
   <div class="about-hexagon-wrapper <?php echo $class ?>">
     <svg class="image-hexagon" viewBox="0 0 100 114.4">
-      <path fill="#<?php echo $color ?>" stroke="#<?php echo $color ?>" d="<?php echo linkbee_hexagon_path() ?>" stroke-width="3px" />
+      <defs>
+        <clipPath id="hexagonPath">
+          <path d="<?php echo linkbee_hexagon_path() ?>" ></path>
+        </clipPath>
+      </defs>
+      <path fill="#<?php echo $color ?>" stroke="#<?php echo $color ?>" d="<?php echo linkbee_hexagon_path() ?>" stroke-width="3px" ></path>
       <?php if($svg_contents) echo $svg_contents; ?>
     </svg>
     <?php if($text_contents) echo $text_contents; ?>
   </div>
 <?php } ?>
 
- <svg width="0" height="0" viewBox="0 0 100 100">
-  <defs>
-    <clipPath id="hexagonPath">
-      <path d="<?php echo linkbee_hexagon_path() ?>" />
-    </clipPath>
-  </defs>
- </svg>
-
  <div class="about-lb-wrapper">
    <img src="<?php echo linkbee_uri() ?>assets/images/logos/hex-icon.png" />
  </div>
 
-<?php $employees = get_posts('post_type=linkbee_employee');
-print_hexagons($employees);
+<?php $employees = get_posts('post_type=linkbee_employee'); ?>
+<?php print_hexagons($employees);
 wp_reset_postdata(); ?>
