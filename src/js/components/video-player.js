@@ -19,6 +19,7 @@ let $$ = {
   skipLink: $('.skip-link'),
   skipLinkTrigger: $('.skip-link .button'),
   mobilePoster: $('.mobile-poster').not('.skip-link .button'),
+  replayButton: $('.play-wrapper'),
   window: $(window),
   htmlBody: $('html,body')
 }
@@ -41,7 +42,7 @@ export default class VideoPlayer {
 
     this.player.on('timeupdate', () => {
       let currentTime = this.player.currentTime();
-      if (currentTime > 13.4 && !this.backgroundToggled) {
+      if (currentTime > 13.2 && !this.backgroundToggled) {
         this.toggleBackground();
       }
     });
@@ -49,6 +50,8 @@ export default class VideoPlayer {
     this.player.on('ended', () => {
       $$.interactiveGraphic.addClass('rays');
     });
+
+    $$.replayButton.on('click', this.showVideoSection.bind(this));
   }
 
   setupPlayer() {
@@ -93,13 +96,18 @@ export default class VideoPlayer {
     }
   }
 
+  untoggleBackground() {
+    $$.videoWrapper.removeClass('switch-background');
+    $$.interactiveGraphic.removeClass('switch-background');
+    this.backgroundToggled = false;
+  }
+
   skipVideo() {
     this.hidePoster();
     this.toggleBackground();
     this.player.pause();
     $$.videoPlayer.addClass('stopped');
     $$.interactiveGraphic.addClass('rays');
-    // this.player.currentTime(this.player.duration());
 
     if (mobileDetect.isDevice()) {
       this.hideVideoSection();
@@ -113,6 +121,21 @@ export default class VideoPlayer {
     $$.htmlBody.animate({
       scrollTop: $$.header.height()
     })
+  }
+
+  showVideoSection() {
+    this.isHidden = false;
+    this.hidePoster()
+    $$.videoWrapper.removeClass('is-hidden')
+    this.sizeDesktop()
+    $$.htmlBody.animate({
+      scrollTop: 0
+    })
+    this.untoggleBackground()
+    $$.videoPlayer.removeClass('stopped');
+    $$.interactiveGraphic.removeClass('rays');
+    this.player.currentTime(0)
+    this.player.play()
   }
 
   hidePoster() {
@@ -146,7 +169,7 @@ export default class VideoPlayer {
       } else {
         $$.videoPlayer.css({
           height: parseInt($$.window.width() / PLAYER_RATIO + 2, 10),
-          width: '100%'
+          width: 'calc(100% + 2px)'
         });
       }
     }

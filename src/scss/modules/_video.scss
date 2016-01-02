@@ -8,7 +8,7 @@ $poster-background-color: #FBF6C1;
   overflow: hidden;
   display: block;
   // visibility: hidden;
-  transition: height 0.3s ease-out, background 0.4s linear;
+  transition: height 0.3s ease-out, background 0.6s linear;
   background-color: $graphic-starting-background-color;
 
   &.switch-background {
@@ -45,7 +45,7 @@ $poster-background-color: #FBF6C1;
   @include transform-center();
   z-index: 2;
   opacity: 1;
-  transition: opacity 0.8s ease-out, z-index 0.9s 0s ease-out, background 0.4s linear;
+  transition: opacity 0.6s linear, z-index 0.9s 0s ease-out, background 0.6s linear;
 
   video {
     width: 100% !important;

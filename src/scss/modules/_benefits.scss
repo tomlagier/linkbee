@@ -115,8 +115,15 @@ $benefits-divider-color: #FBF6C1;
     color: $security-color;
   }
 
-  .living h3 {
-    color: $living-color;
+  .living {
+    .icon-wrapper {
+      @media screen and (max-width: 400px) {
+        margin-bottom: 40px;
+      }
+    }
+    h3 {
+      color: $living-color;
+    }
   }
 
   .mobile-heading {

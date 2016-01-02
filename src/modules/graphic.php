@@ -1,4 +1,7 @@
 <div class="interactive-graphic">
+  <div class="play-wrapper">
+    <img src="<?php echo linkbee_uri() ?>assets/images/ui/play-button.png" />
+  </div>
   <div class="graphic-wrapper">
     <img class="lightbulb" src="<?php echo linkbee_uri() ?>assets/images/graphic/lightbulb.png"/>
     <div class="icon-wrapper lifestyle" data-benefit="lifestyle">

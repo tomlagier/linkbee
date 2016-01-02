@@ -93,6 +93,6 @@ function print_hexagon($color, $svg_contents = false, $text_contents = false) {
    <img src="<?php echo linkbee_uri() ?>assets/images/logos/hex-icon.png" />
  </div>
 
-<?php $employees = get_posts('post_type=linkbee_employee'); ?>
+<?php $employees = get_posts(array('post_type'=>'linkbee_employee','posts_per_page' => -1)); ?>
 <?php print_hexagons($employees);
 wp_reset_postdata(); ?>
