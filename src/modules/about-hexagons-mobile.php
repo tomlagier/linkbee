@@ -6,6 +6,7 @@
 
 function print_mobile_hexagons($employees) {
   $employee_count = 0;
+  var_dump($employees);
   foreach($employees as $employee) {
     print_mobile_hexagon($employee, $employee_count);
     $employee_count++;
@@ -49,6 +50,6 @@ function print_mobile_hexagon($employee, $count) {
  </defs>
 </svg>
 
-<?php $employees = get_posts('post_type=linkbee_employee,posts_per_page=-1');
+<?php $employees = get_posts(array('post_type'=>'linkbee_employee','posts_per_page' => -1));;
 print_mobile_hexagons($employees);
 wp_reset_postdata(); ?>
