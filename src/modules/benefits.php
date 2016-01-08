@@ -9,7 +9,7 @@
       </div>
       <div class="text-wrapper">
         <h3>Energy</h3>
-        <p>Save the smart way, lights that use 90% less energy.</p>
+        <p>Save the smart way: lights that use 90% less energy.</p>
       </div>
     </div>
     <div class="col-5 benefit health" data-benefit="health">
@@ -18,7 +18,7 @@
       </div>
       <div class="text-wrapper">
         <h3>Health</h3>
-        <p>Breath better, sleep better, feel better.</p>
+        <p>Breathe better, sleep better, feel better.</p>
       </div>
     </div>
     <div class="col-5 benefit lifestyle" data-benefit="lifestyle">
@@ -27,7 +27,7 @@
       </div>
       <div class="text-wrapper">
         <h3>Tech Lifestyle</h3>
-        <p>Where connected home comes to life. Play, discover, and learn.</p>
+        <p>Where the connected home comes to life. Play, discover, and learn.</p>
       </div>
     </div>
     <div class="col-5 benefit security" data-benefit="security">
@@ -36,7 +36,7 @@
       </div>
       <div class="text-wrapper">
         <h3>Security</h3>
-        <p>Intelligent security with 24 hour deterrence.</p>
+        <p>Intelligent security with 24-hour deterrence.</p>
       </div>
     </div>
     <div class="col-5 benefit living" data-benefit="living">
@@ -45,7 +45,7 @@
       </div>
       <div class="text-wrapper">
         <h3>Independent Living</h3>
-        <p>Technology that empowers seniors to live at home in a healthy, safe and independent environment.</p>
+        <p>Technology that empowers seniors to live at home in a healthy, safe, and independent environment.</p>
       </div>
     </div>
   </div>

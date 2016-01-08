@@ -64,6 +64,10 @@ $about-font-color: #747476;
   height: 235px;
   position: relative;
   margin-right: 5px;
+  
+  &, * {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
 
   @include breakpoint(tablet) {
     width: 100%;
@@ -77,20 +81,22 @@ $about-font-color: #747476;
   }
 
   &.has-text{
-    cursor: pointer;
+    cursor: default;
 
     @include breakpoint(tablet) {
       display: block;
     }
   }
 
-  &.has-text:hover {
-    .employee-image {
-      opacity: 0.3;
-    }
+  @media screen and (min-width: 841px) {
+    &.has-text:hover, &.has-text.active {
+      .employee-image {
+        opacity: 0.2;
+      }
 
-    .text-hexagon {
-      opacity: 1;
+      .text-hexagon {
+        opacity: 1;
+      }
     }
   }
 
@@ -116,7 +122,7 @@ $about-font-color: #747476;
     transition: opacity 0.3s ease-out;
     opacity: 0;
     color: $white;
-    max-width: 96%;
+    max-width: 94%;
     max-height: 51%;
     width: 100%;
 
@@ -135,8 +141,8 @@ $about-font-color: #747476;
       text-transform: uppercase;
       color: $white;
       font-weight: bold;
-      margin-top: 0;
-      margin-bottom: 0;
+      margin-top: 10px;
+      margin-bottom: 10px;
       @include employee-heading-font();
     }
 
@@ -154,6 +160,8 @@ $about-font-color: #747476;
       font-size: em(12);
       line-height: 1.1em;
       color: $white;
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
 
       * {
         color: white;

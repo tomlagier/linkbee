@@ -7,7 +7,8 @@ let $$ = {
   closeButton: $('.contact-form-wrapper .close'),
   html: $('html'),
   submitButton: $('.submit-button'),
-  submitButtonInput: $('.submit-button input')
+  submitButtonInput: $('.submit-button input'),
+  response: $('#mce-success-response')
 };
 
 export default class ContactForm {
@@ -21,6 +22,10 @@ export default class ContactForm {
     $$.submitButton.on('click', evt => {
       if (!$(evt.target).closest('input').length) {
         $$.submitButtonInput.click();
+        if(!$('.mce_inline_error').length) {
+          $$.response.show().text('Submitting...')
+          $$.overlay.scrollTop(0); 
+        }
       }
     });
   }

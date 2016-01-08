@@ -5,6 +5,7 @@ import StickyHeader from './components/sticky-header';
 import VideoPlayer from './components/video-player';
 import Graphic from './components/graphic';
 import ContactForm from './components/contact-form';
+import AboutHexagons from './components/about';
 import Loader from './components/loader';
 
 class App {
@@ -18,7 +19,7 @@ class App {
     let videoPlayer = new VideoPlayer();
     let graphic = new Graphic();
     let contactForm = new ContactForm();
-
+    let about = new AboutHexagons();
   }
 }
 

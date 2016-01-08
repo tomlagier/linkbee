@@ -5,9 +5,6 @@ let $$ = {
 };
 
 class MobileDetect {
-  constructor() {
-
-  }
 
   isDesktop() {
     return $$.window.width() > 1100;

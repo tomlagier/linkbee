@@ -62,7 +62,7 @@ $poster-background-color: #FBF6C1;
     opacity: 0;
   }
 
-  &:hover .vjs-control-bar:not(.vjs-user-inactive), &:hover:not(.vjs-user-inactive) .skip-link{
+  &:hover .vjs-control-bar:not(.vjs-user-inactive) {
     opacity: 1;
   }
 
@@ -83,16 +83,15 @@ $poster-background-color: #FBF6C1;
 
 .skip-link {
   position: absolute;
-  bottom: 40px;
+  bottom: 10px;
+  left: 15px;
   z-index: 202;
   opacity: 0;
   transition: opacity 0.3s ease-out, z-index 0.3s 0s;
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  font-size: 18px;
+  padding: 0;
+  display: inline-block;
 
-  &.hidden, .vjs-ended + & {
+  &.hidden, .stopped & {
     opacity: 0;
     z-index: -1;
   }
@@ -101,6 +100,8 @@ $poster-background-color: #FBF6C1;
     color: $linkbee-orange;
     border-width: 1px;
     margin-left: 0;
+    font-size: em(10);
+    padding: 3px 8px;
 
     &:hover {
       color: $linkbee-yellow;
@@ -109,11 +110,18 @@ $poster-background-color: #FBF6C1;
 
   @include breakpoint(tablet) {
     opacity: 1 !important;
-    bottom: 0;
+    bottom: 15px;
+    width: 100%;
+    left: 0;
+    text-align: center;
 
     .button{
       background: $linkbee-orange;
       color: $linkbee-yellow;
     }
+  }
+  
+  .hero:hover & {
+    opacity: 1;
   }
 }

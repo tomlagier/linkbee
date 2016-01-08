@@ -14,6 +14,7 @@ let $$ = {
   skipLinkTrigger: $('.skip-link .button'),
   header: $('.wrap-header'),
   html: $('html'),
+  replayButton: $('.play-wrapper'),
   htmlBody: $('html,body')
 }
 
@@ -52,6 +53,8 @@ export default class Graphic {
     });
 
     $$.benefit.on('click', this.activateBenefit.bind(this));
+    
+    $$.replayButton.on('click', this.unslideBenefits.bind(this))
 
   }
 
@@ -75,6 +78,16 @@ export default class Graphic {
     if (mobileDetect.isDesktop()) {
       this.benefitsSlid = true;
       $$.benefits.addClass('slid');
+      let containerHeight = this.getContainerHeight();
+      this.sizeGraphic(containerHeight);
+      this.sizeVideo(containerHeight);
+    }
+  }
+  
+  unslideBenefits() {
+    if (mobileDetect.isDesktop()) {
+      this.benefitsSlid = false;
+      $$.benefits.removeClass('slid');
       let containerHeight = this.getContainerHeight();
       this.sizeGraphic(containerHeight);
       this.sizeVideo(containerHeight);

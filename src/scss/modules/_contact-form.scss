@@ -127,9 +127,13 @@ html.form-active {
 
   input, select, textarea {
     width: 100%;
-    margin-bottom: 25px;
     padding: 8px 15px;
     border: 1px solid $form-border-color;
+    color: darken(#58595B, 20%);
+  }
+  
+  .mc-field-group {
+    margin-bottom: 25px;
   }
 
   select {
@@ -154,67 +158,55 @@ html.form-active {
     text-transform: uppercase;
     padding: 8px 14px;
     width: 70px;
+    height: 80px;
     display: inline-block;
     color: white;
     background-color: $linkbee-orange;
-    transition: background-color 0.3s ease-out;
     cursor: pointer;
     position: relative;
     margin: 15px 0;
+    background: url('#{$imagePath}/ui/send-button-background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    &:hover input {
+      transition: color 0.3s ease-out;
+      color: darken($linkbee-orange, 20%);
+    }
 
     input {
+      @include transform-center()
       appearance: none;
+      color: $linkbee-yellow;
       background: transparent;
       border: 0;
       width: 100%;
       padding: 0;
       margin: 0;
     }
-
-    &:hover {
-      background-color: darken($linkbee-orange, 10%);
-
-      &:before {
-        border-bottom-color: darken($linkbee-orange, 10%);
-      }
-
-      &:after {
-        border-top-color: darken($linkbee-orange, 10%);
-      }
-    }
-
-    &:before, &:after {
-      content: '';
-      cursor: pointer;
-      border-color: $linkbee-orange;
-      border-style: solid;
-      transition: border-color 0.3s ease-out;
-    }
-
-    &:before {
-      border-bottom: 20px #FF8201 solid;
-      border-left: 35px transparent solid;
-      border-right: 35px transparent solid;
-      border-top: 0;
-      width: 0;
-      height: 0;
-      @include transform-center('horizontal');
-      top: -20px;
-    }
-
-    &:after {
-      border-top: 20px #FF8201 solid;
-      border-left: 35px transparent solid;
-      border-right: 35px transparent solid;
-      border-bottom: 0;
-      width: 0;
-      height: 0;
-      @include transform-center('horizontal');
-      bottom: -20px;
-    }
   }
 
   .response {
-    margin-top: 25px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: $linkbee-orange;
+  }
+  
+  #mce-success-response {
+    color: $linkbee-orange;
+  }
+  
+  #mce-error-response {
+    color: red;
+  }
+  
+  .mce_inline_error {
+    border-color: red;
+    margin-top: 5px;
+    text-align: left;
+  }
+  
+  div.mce_inline_error {
+    color: red;
   }
 }

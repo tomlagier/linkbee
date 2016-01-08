@@ -42,22 +42,27 @@ export default class VideoPlayer {
 
     this.player.on('timeupdate', () => {
       let currentTime = this.player.currentTime();
-      if (currentTime > 13.2 && !this.backgroundToggled) {
+      if (currentTime > 11.4 && !this.backgroundToggled) {
         this.toggleBackground();
       }
     });
 
     this.player.on('ended', () => {
       $$.interactiveGraphic.addClass('rays');
+      $$.skipLink.addClass('hidden');  
     });
 
-    $$.replayButton.on('click', this.showVideoSection.bind(this));
+    $$.replayButton.on('click', () => {
+      this.showVideoSection();
+      $$.videoWrapper.removeClass('stopped');
+      $$.skipLink.removeClass('hidden');
+      $$.interactiveGraphic.removeClass('rays');
+    });
   }
 
   setupPlayer() {
     if (mobileDetect.isDesktop()) {
       this.options.callbacks.push(() => {
-        this.moveSkipLink();
         this.player.play();
       });
 
@@ -84,10 +89,6 @@ export default class VideoPlayer {
     this.sizeDesktop();
   }
 
-  moveSkipLink() {
-    $('.video-js').append($$.skipLink);
-  }
-
   toggleBackground() {
     if (!this.backgroundToggled) {
       $$.videoWrapper.addClass('switch-background');
@@ -107,6 +108,8 @@ export default class VideoPlayer {
     this.toggleBackground();
     this.player.pause();
     $$.videoPlayer.addClass('stopped');
+    $$.videoWrapper.addClass('stopped');
+    $$.skipLink.addClass('hidden');
     $$.interactiveGraphic.addClass('rays');
 
     if (mobileDetect.isDevice()) {

@@ -60,27 +60,33 @@
 
   &.rays .play-wrapper {
     opacity: 0.3;
+    
+    &:hover {
+      opacity: 1;
+    }
+    
+    @media screen and (max-width: 1100px) {
+      z-index: 1000;
+      opacity: 0.6;
+    }
   }
 
   .play-wrapper {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 5px;
+    left: 30px;
     opacity: 0;
     transition: opacity 0.3s ease-out;
     cursor: pointer;
+    z-index: 9999;
 
     @media screen and (max-width: 1100px) {
-      opacity: 0.6;
       bottom: 30px;
-    }
-
-    &:hover {
-      opacity: 1;
+      left: 30px;
     }
 
     img {
-      width: 50px;
+      width: 40px;
 
       @media screen and (max-width: 767px) {
         width: 35px;
