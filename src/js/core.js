@@ -7,6 +7,7 @@ import Graphic from './components/graphic';
 import ContactForm from './components/contact-form';
 import AboutHexagons from './components/about';
 import Loader from './components/loader';
+import './components/analytics';
 
 class App {
   constructor() {

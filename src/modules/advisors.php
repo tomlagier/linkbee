@@ -13,7 +13,7 @@
         </div>
         <div class="text-wrapper">
           <h4><a href="http://www.loebenterprises.com" target="_blank">Loeb Enterprises LLC</a></h4>
-          <p><a href="http://www.loebenterprises.com" target="_blank">Loeb Enterprises</a> is a direct-marketing leader, with deep experience and expertise in influencing consumer behavior. Successes include Synapse Group, the largest seller of magazines in the US (acquired by Time Inc. for $475 million), Priceline.com (the largest online travel service), and Script Relief (a free-to-consumer pharmacy discount card that has helped over 7.5 million Americans save over $750 million on prescription medications).</p>
+          <p><a href="http://www.loebenterprises.com" target="_blank">Loeb Enterprises</a> is a direct-marketing leader, with whose founders possess deep experience and expertise in influencing consumer behavior. They know success, past and present. Before Loeb Enterprises, time and time again their expertise and approach have helped create successful business ventures such as Synapse Group, the largest seller of magazines in the US (acquired by Time Inc. for $475 million), and Priceline.com, the largest online travel service.  Through Loeb Enterprises, they have revolutionized the prescription medication industry with Script Relief, a free-to-consumer pharmacy discount card that has helped over 7.5 million Americans save over $750 million on prescription medications.</p>
         </div>
       </div>
       <div class="advisor col-2 pegasus">
