@@ -65,27 +65,27 @@ function create_layout($index) {
         $layouts[7][10] = 'face';
         break;
       case 8:
-        $layouts[10][0] = 'face';
-        $layouts[10][2] = 'face';
-        $layouts[10][3] = 'face';
-        $layouts[10][4] = 'face';
-        $layouts[10][5] = 'face';
-        $layouts[10][6] = 'face';
-        $layouts[10][7] = 'face';
-        $layouts[10][8] = 'face';
-        $layouts[10][10] = 'face';
+        $layouts[8][0] = 'face';
+        $layouts[8][2] = 'face';
+        $layouts[8][3] = 'face';
+        $layouts[8][4] = 'face';
+        $layouts[8][5] = 'face';
+        $layouts[8][6] = 'face';
+        $layouts[8][7] = 'face';
+        $layouts[8][8] = 'face';
+        $layouts[8][10] = 'face';
         break;
       case 9:
-        $layouts[10][0] = 'face';
-        $layouts[10][1] = 'face';
-        $layouts[10][2] = 'face';
-        $layouts[10][3] = 'face';
-        $layouts[10][4] = 'face';
-        $layouts[10][5] = 'face';
-        $layouts[10][6] = 'face';
-        $layouts[10][7] = 'face';
-        $layouts[10][8] = 'face';
-        $layouts[10][10] = 'face';
+        $layouts[9][0] = 'face';
+        $layouts[9][1] = 'face';
+        $layouts[9][2] = 'face';
+        $layouts[9][3] = 'face';
+        $layouts[9][4] = 'face';
+        $layouts[9][5] = 'face';
+        $layouts[9][6] = 'face';
+        $layouts[9][7] = 'face';
+        $layouts[9][8] = 'face';
+        $layouts[9][10] = 'face';
         break;
       case 10:
         $layouts[10][0] = 'face';

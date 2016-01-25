@@ -54,3 +54,5 @@ function voidx_widgets_init() {
   ) );
 }
 add_action( 'widgets_init', 'voidx_widgets_init' );
+
+function voidx_post_navigation(){}
