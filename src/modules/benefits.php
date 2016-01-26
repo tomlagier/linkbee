@@ -8,8 +8,9 @@
         <img src="<?php echo linkbee_uri() ?>assets/images/benefits/energy-icon.png">
       </div>
       <div class="text-wrapper">
-        <h3>Energy</h3>
-        <p>Save the smart way: lights that use 90% less energy.</p>
+        <?php $energy_post = get_posts(array('post_type'=>'linkbee_content','posts_per_page' => 1, 'tag' => 'benefit-energy')); ?>
+        <h3><?php echo $energy_post[0]->post_title; ?></h3>
+        <p><?php echo $energy_post[0]->post_content; ?></p>
       </div>
     </div>
     <div class="col-5 benefit health" data-benefit="health">
@@ -17,8 +18,9 @@
         <img src="<?php echo linkbee_uri() ?>assets/images/benefits/health-icon.png">
       </div>
       <div class="text-wrapper">
-        <h3>Health</h3>
-        <p>Breathe better, sleep better, feel better.</p>
+        <?php $health_post = get_posts(array('post_type'=>'linkbee_content','posts_per_page' => 1, 'tag' => 'benefit-health')); ?>
+        <h3><?php echo $health_post[0]->post_title; ?></h3>
+        <p><?php echo $health_post[0]->post_content; ?></p>
       </div>
     </div>
     <div class="col-5 benefit lifestyle" data-benefit="lifestyle">
@@ -26,8 +28,9 @@
         <img src="<?php echo linkbee_uri() ?>assets/images/benefits/lifestyle-icon.png">
       </div>
       <div class="text-wrapper">
-        <h3>Tech Lifestyle</h3>
-        <p>Where the connected home comes to life. Play, discover, and learn.</p>
+        <?php $tech_post = get_posts(array('post_type'=>'linkbee_content','posts_per_page' => 1, 'tag' => 'benefit-lifestyle')); ?>
+        <h3><?php echo $tech_post[0]->post_title; ?></h3>
+        <p><?php echo $tech_post[0]->post_content; ?></p>
       </div>
     </div>
     <div class="col-5 benefit security" data-benefit="security">
@@ -35,8 +38,9 @@
         <img src="<?php echo linkbee_uri() ?>assets/images/benefits/security-icon.png">
       </div>
       <div class="text-wrapper">
-        <h3>Security</h3>
-        <p>Intelligent security with 24-hour deterrence.</p>
+        <?php $security_post = get_posts(array('post_type'=>'linkbee_content','posts_per_page' => 1, 'tag' => 'benefit-security')); ?>
+        <h3><?php echo $security_post[0]->post_title; ?></h3>
+        <p><?php echo $security_post[0]->post_content; ?></p>
       </div>
     </div>
     <div class="col-5 benefit living" data-benefit="living">
@@ -44,8 +48,9 @@
         <img src="<?php echo linkbee_uri() ?>assets/images/benefits/living-icon.png">
       </div>
       <div class="text-wrapper">
-        <h3>Independent Living</h3>
-        <p>Technology that empowers seniors to live at home in a healthy, safe, and independent environment.</p>
+        <?php $living_post = get_posts(array('post_type'=>'linkbee_content','posts_per_page' => 1, 'tag' => 'benefit-independent')); ?>
+        <h3><?php echo $living_post[0]->post_title; ?></h3>
+        <p><?php echo $living_post[0]->post_content; ?></p>
       </div>
     </div>
   </div>

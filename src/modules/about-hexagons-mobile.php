@@ -6,7 +6,6 @@
 
 function print_mobile_hexagons($employees) {
   $employee_count = 0;
-  var_dump($employees);
   foreach($employees as $employee) {
     print_mobile_hexagon($employee, $employee_count);
     $employee_count++;

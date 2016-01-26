@@ -1,8 +1,9 @@
 <div class="module about">
   <div class="module-inner">
     <div class="upper-text">
-      <h2>About Us</h2>
-      <p>LinkBee redefines the smart home with an end-to-end solution we install for you. Starting with connected light bulbs, we provide your home with true intelligence through a neural network that constantly improves your surroundings.  Through our learning algorithms, you will enjoy better health, tighter security, and meaningful energy savings.</p>
+    <?php $about_post = get_posts(array('post_type'=>'linkbee_content','posts_per_page' => 1, 'tag' => 'about-us')); ?>
+    <h2><?php echo $about_post[0]->post_title; ?></h2>
+    <p><?php echo $about_post[0]->post_content; ?></p>
     </div>
     <div class="about-hexagons">
       <div class="desktop-only">

@@ -153,3 +153,31 @@ function linkbee_hexagon_path() {
 	return 'M1.7,27.4L48.3,0.4c1-0.6,2.3-0.6,3.3,0l46.7,26.9c1,0.6,1.7,1.7,1.7,2.9v53.9
 	c0,1.2-0.6,2.3-1.7,2.9L51.7,114c-1,0.6-2.3,0.6-3.3,0L1.7,87c-1-0.6-1.7-1.7-1.7-2.9l0-53.9C0,29.1,0.6,28,1.7,27.4z';
 }
+
+/**
+ * Create our "Content" post type
+ */
+
+add_action('init', 'create_linkbee_content_post_type');
+function create_linkbee_content_post_type() {
+	register_post_type( 'linkbee_content',
+    array(
+      'labels' => array(
+        'name' => __( 'Homepage Content' ),
+        'singular_name' => __( 'Homepage Content Item' ),
+      ),
+      'description' => 'Generic post type for all homepage content',
+      'public' => true,
+      'has_archive' => false,
+      'menu_position' => 6,
+      'menu_icon' => 'dashicons-media-document',
+      'supports' => array(
+        'title',
+        'editor',
+        'thumbnail',
+        'custom-fields'
+      ),
+      'taxonomies' => array('post_tag')
+    )
+  );
+}
